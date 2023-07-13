@@ -3,6 +3,6 @@ package com.draconomicon.api.repository;
 import com.draconomicon.api.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface BlogRepository extends JpaRepository<Blog, Long> {
 
-public interface UserRepository extends JpaRepository<User, Long> {
 }

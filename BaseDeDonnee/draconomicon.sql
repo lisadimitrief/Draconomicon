@@ -54,12 +54,12 @@ DROP TABLE IF EXISTS `commentaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `commentaire` (
-  `id_commentaire` int NOT NULL AUTO_INCREMENT,
+  `id_comment` int NOT NULL AUTO_INCREMENT,
   `comment` varchar(250) NOT NULL,
   `date_comments` datetime NOT NULL,
   `id_user` int NOT NULL,
   `id_blog` int NOT NULL,
-  PRIMARY KEY (`id_commentaire`),
+  PRIMARY KEY (`id_comment`),
   KEY `fk_user_commentaire_idx` (`id_user`),
   KEY `fk_blog_commentaire_idx` (`id_blog`),
   CONSTRAINT `fk_blog_commentaire` FOREIGN KEY (`id_blog`) REFERENCES `blog` (`id_blog`),
@@ -137,7 +137,7 @@ DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media` (
   `id_media` int NOT NULL AUTO_INCREMENT,
   `media_text` text NOT NULL,
-  `media_image` text NOT NULL,
+  `media_image` varchar(25) NOT NULL,
   `media_date` datetime NOT NULL,
   `id_encyclopedie` int NOT NULL,
   PRIMARY KEY (`id_media`),
@@ -212,6 +212,10 @@ LOCK TABLES `user` WRITE;
 INSERT INTO `user` VALUES (1,'The Doctor','johnsmith@email.uk','i am the doctor',911,3,'dragon.jpg',2),(3,'Lyrael Droppy','droopygirl@email.fr','mylovekitten',69,3,'dragon.jpg',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'draconomicon'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -222,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-13  9:10:16
+-- Dump completed on 2023-07-13 11:15:38

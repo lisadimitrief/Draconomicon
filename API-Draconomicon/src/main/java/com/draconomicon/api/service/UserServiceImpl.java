@@ -7,6 +7,7 @@ import com.draconomicon.api.model.User;
 import com.draconomicon.api.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,15 +29,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User modifier(Long id_user, User user) {
 		return userRepository.findById(id_user)
-				.map(p-> {
-					p.setUsername(user.getUsername());
-					p.setMail(user.getMail());
-					p.setPassword(user.getPassword());
-					p.setAge(user.getAge());
-					p.setIdGenre(user.getIdGenre());
-					p.setAvatar(user.getAvatar());
-					p.setIdRole(user.getIdRole());
-					return userRepository.save(p); 			
+				.map(u-> {
+					u.setUsername(user.getUsername());
+					u.setMail(user.getMail());
+					u.setPassword(user.getPassword());
+					u.setAge(user.getAge());
+					u.setIdGenre(user.getIdGenre());
+					u.setAvatar(user.getAvatar());
+					u.setIdRole(user.getIdRole());
+					return userRepository.save(u); 			
 				}).orElseThrow(() -> new RuntimeException("User not found"));
 	}
 

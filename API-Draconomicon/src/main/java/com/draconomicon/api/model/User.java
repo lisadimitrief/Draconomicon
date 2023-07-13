@@ -1,8 +1,8 @@
 package com.draconomicon.api.model;
 
-// import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+// import com.draconomicon.api.model.Genre;
 
 @Data
 @Entity
@@ -29,9 +29,9 @@ public class User {
 	
 	@Column(name="id_genre")
 	@JoinTable(
-			name="genre",
-			joinColumns= {@JoinColumn(name="id_genre")}
-			)
+		name="genre",
+		joinColumns= {@JoinColumn(name="genre")}
+	)
 	private int idGenre;
     
     @Column(name="avatar", length = 25)
@@ -40,8 +40,8 @@ public class User {
     @Column(name="id_role")
 	@JoinTable(
 		name="role",
-		joinColumns= {@JoinColumn(name="id_role")}
-		)
+		joinColumns= {@JoinColumn(name="role")}
+	)
 	private int idRole;
 
 }
