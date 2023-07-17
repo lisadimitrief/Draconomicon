@@ -27,9 +27,9 @@ DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog` (
   `id_blog` int NOT NULL AUTO_INCREMENT,
   `titre` varchar(25) NOT NULL,
-  `contenu` text NOT NULL,
-  `image` varchar(25) NOT NULL,
-  `date_blog` datetime NOT NULL,
+  `contenu` varchar(255) NOT NULL,
+  `image` varchar(25) DEFAULT NULL,
+  `date_blog` date NOT NULL,
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_blog`),
   KEY `fk_user_blog_idx` (`id_user`),
@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS `commentaire`;
 CREATE TABLE `commentaire` (
   `id_comment` int NOT NULL AUTO_INCREMENT,
   `comment` varchar(250) NOT NULL,
-  `date_comments` datetime NOT NULL,
+  `date_comments` date DEFAULT NULL,
   `id_user` int NOT NULL,
   `id_blog` int NOT NULL,
   PRIMARY KEY (`id_comment`),
@@ -88,8 +88,10 @@ CREATE TABLE `encyclopedie` (
   `espece` varchar(35) NOT NULL,
   `caract_text` text NOT NULL,
   `caract_image` varchar(25) NOT NULL,
-  `myths_text` text NOT NULL,
+  `myths_text` varchar(255) DEFAULT NULL,
   `myths_image` varchar(25) NOT NULL,
+  `carac_image` varchar(25) DEFAULT NULL,
+  `carac_text` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_encyclopedie`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -136,9 +138,9 @@ DROP TABLE IF EXISTS `media`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `media` (
   `id_media` int NOT NULL AUTO_INCREMENT,
-  `media_text` text NOT NULL,
+  `media_text` varchar(255) DEFAULT NULL,
   `media_image` varchar(25) NOT NULL,
-  `media_date` datetime NOT NULL,
+  `media_date` date DEFAULT NULL,
   `id_encyclopedie` int NOT NULL,
   PRIMARY KEY (`id_media`),
   KEY `fk_encyclopedie_media_idx` (`id_encyclopedie`),
@@ -226,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-13 11:15:38
+-- Dump completed on 2023-07-13 19:42:38

@@ -10,10 +10,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain apiSecurity(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests((auth) -> auth
-                .requestMathchers()
+                .requestMatchers("*")
                 .authenticated()
         )
-                .httpBasic();
+                .httpBasic().and().csrf().disable(); //TODO LDI: .csrf().disable() c'est une solution temporaire pour authoriser les post et autre, a ne pas laisser a la fin !!
         return http.build();
     }
 }

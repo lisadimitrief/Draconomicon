@@ -1,6 +1,8 @@
 package com.draconomicon.api.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,7 +28,8 @@ public class Blog {
 	private String image;
 	
     @Column(name="date_blog")
-	private Date dateBlog;
+	@CreationTimestamp
+	private Timestamp dateBlog;
 	
 	@Column(name="id_user")
 	@JoinTable(
