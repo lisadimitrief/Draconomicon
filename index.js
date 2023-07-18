@@ -1,27 +1,36 @@
 let header = document.getElementById("head");
+let activePage = document.getElementsByTagName("h1");
+console.log(activePage[0].outerText=="Connexion");
 header.innerHTML= 
     `
         <div id="titre">
-            <img src="images/draconomicon.png" id="draconomicon">
+            <a href="index.html" id="lienAcceuil">
+                <img src="images/draconomicon.png" id="draconomicon">
+            </a>
         </div>
         <nav>
-            <a>
+            <a href="inscription.html">
                 <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
-                <h2>Inscription</h2>
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Inscription' ? 'id="focus"' : ''}>
+                <p>Inscription</p>
+            </a>
+            <a href="connexion.html">
+                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Connexion' ? 'id="focus"' : ''}>
+                <p>Connexion</p>
             </a>
             <a>
                 <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
-                <h2>Connexion</h2>
-            </a>
-            <a>
-                <img src="images/onglet.png" alt="parchemin déchiré">
-                <h2>Profil</h2>
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus">
+                <p>Encyclopédie</p>
             </a>
             
             <a>
                 <img src="images/onglet.png" alt="parchemin déchiré">
-                <h2>Blog</h2>
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus">
+                <p>Blog</p>
             </a>
+            <img src="images/icone.png" id="burger">
         </nav>        
     `
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="FR-fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/icone.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="index.js"></script>
+    <title>Draconomicon - Inscription</title>
+    <meta name="desciption" content="Voici la page inscription du projet Draconomicon">
+</head>
+<body>
+    <header id="head">
+        <!-- header generer par l'index.js -->
+    </header>
+    <section id="secInscr">
+        <img src="images/parchemin.png" alt="" id="imgInscr">
+        <img src="images/parcheminV.png" alt="" id="imgInscrV">
+        <div class="formTitre">
+            <h1 class="titre">Inscription</h1>
+            <form action="localhost:8080/user" method="POST" id="inscription">
+                
+                <div>
+                    <label>Nom d'utilisateur</label>
+                    <input type="texte" name="Username" maxlength="20">
+                </div>
+                
+                <div>
+                    <label>Email </label>
+                    <input type="e-mail" name="mail" maxlength="30">
+                </div>
+                
+                <div>
+                    <label>Mot de passe</label>
+                    <input type="password" name="password">
+                </div>
+
+                <div>
+                    <label>Confirmation mot de passe</label>
+                    <input type="password" name="password">
+                </div>
+
+                <div>
+                    <label>Date de Naissance</label>
+                    <input type="date" name="date">
+                </div>
+                
+                <div>
+                    <label class="invisible">invisible</label>
+                    <input type="submit" id="valideInsc" value="Envoyer">
+                </div>
+
+                <div class="ligne">
+                    <label>CGU</label>
+                    <input type="checkbox" name="CGU" class="check">
+                </div>
+
+                <div class="ligne">
+                    <p class="lisible">Déjà inscrit ?</p>
+                    <a href="connexion.html">
+                        <p>Connectez-vous</p>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <!-- <div id="deco">
+            <img src="images\deco.png" alt="dragon décoratif vers la gauche">
+            <img src="images\deco.png" alt="dragon décoratif vers la droite">
+        </div>     -->
+    </section>
+ 
+    <footer id="foot">
+        <!-- footer generer par l'index.js -->
+    </footer>
+</body>
+</html>

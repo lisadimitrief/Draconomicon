@@ -18,15 +18,16 @@
 body
 {
     font-family: 'Sancreek', cursive;
-    background: url("images/fond.png");
+    background: url("images/test.jpeg");
     background-size: cover;
 }
 
-
 /* PC "Standard" */
-
 /* header */
-
+#burger,#imgInscrV
+{
+    display: none;
+}
 #head, #foot
 {
     background: url("images/headFoot.jpeg");
@@ -57,23 +58,31 @@ a
     justify-content: center;
     align-items: center;
 }
-a img
+nav a img
 {
     width: 7em;
     height: 4em;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 }
 .longP
 {
-    width: 9em;
+    width: 10em;
 }
-a h2
+a p
 {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
+    font-size: 1.5em;
     font-weight: 400;
 
+}
+
+.ongletFocus
+{
+    z-index: 1;
+    margin-top: 5em;
+    visibility: hidden;
 }
 
 /* footer */
@@ -94,12 +103,33 @@ footer h3
     font-weight: 400;
 }
 
-/* Forumaire */
+/* Connexion/Inscription */
+section
+{
+    width: 100vw;
+    height: 100vw;
+}
 #secInscr
 {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    width: 100%;
+    height: 100%;
+}
+
+#secInscr label
+{
+    font-size: 1.5em;
+}
+#secInscr input:not(.check)
+{
+    width: 20em;
+    height: 2.5em;
+    border: black 2px solid;
+    background-color: rgba(0, 0, 0, 0.687); 
+    border-radius: 8px;
 }
 #deco
 {
@@ -110,26 +140,150 @@ footer h3
 #imgInscr
 {
     z-index: 2;
-    /* width: 80em; */
-    /* height: auto; */
+    width: 80em;
+    height: 38em;
     /* height: 50em; */
 }
-#inscription
+.formTitre
 {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    width: 60em;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
     z-index: 3;
+    /* width: 50em; */
 }
-#secInscr label
+#inscription
 {
-    font-size: 1.5em;
+    display: grid;
+    flex-wrap: wrap;
+    width: 50em;
+
+}
+.titre
+{
+    font-family: "HouseOfTheDragon";
+    font-weight: 400;
+    font-size: 4em;
+}
+form div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+}
+#inscription div:nth-child(1)
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+#inscription div:nth-child(2)
+{
+    grid-column: 2;
+    grid-row: 1;
+}
+#inscription div:nth-child(3)
+{
+    grid-column: 1;
+    grid-row: 2;
+}
+#inscription div:nth-child(4)
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+#inscription div:nth-child(5)
+{
+    grid-column: 1;
+    grid-row: 3;
+}
+#inscription div:nth-child(6)
+{
+    grid-column: 2;
+    grid-row: 3;
+}
+.invisible
+{
+    visibility: hidden;
+}
+.ligne
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.lisible
+{
+    margin-right: 5.5em;
+}
+#ligneCo
+{
+    justify-content: center;
+    align-items: flex-end;
+}
+.ligne input, .ligne a
+{
+    margin-left: 5px;
+}
+#secInscr input[type=submit]
+{
+    background-color: rgba(67, 224, 104, 0.7);
+    box-shadow: inset black 0 0 20px;
+    border: none;
+    color: white;
+    font-family: "Sancreek";
 }
 
-#secInscr input
+/* Interaction */
+
+a:hover p
 {
-    width: 20em;
-    height: 1.5em;
+    color: red;
+}
+a:hover .ongletFocus, #focus
+{
+    visibility: visible;
+}
+a:visited
+{
+    color: black;
+}
+#secInscr input[type=submit]:hover
+{
+    background: rgba(67, 224, 104, 1);
+    width: 21em;
+}
+#secInscr input[type=submit]:active
+{
+    color: green;
+    box-shadow: inset green 0 0 12px 3px;
+}
+
+@media screen and (max-width: 430px){
+    #burger
+    {
+        display: block;
+        width: 10em;
+        position: absolute;
+        z-index: 5;
+        top: -4em;
+    }
+    nav a, #titre, #imgInscr
+    {
+        display: none;
+    }
+    #imgInscrV
+    {
+        display: block;
+        width: 26em;
+        margin: auto;
+    }
+    #head
+    {
+        background: none;
+    }
 }
