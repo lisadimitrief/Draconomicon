@@ -28,5 +28,5 @@ header.innerHTML=
 let footer = document.getElementById("foot");
 footer.innerHTML = 
     `
-        <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
+        <h3>Créé par Lisa Dimitrief-Dontcheff</h3>
     `
