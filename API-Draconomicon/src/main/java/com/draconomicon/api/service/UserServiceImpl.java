@@ -1,7 +1,7 @@
 package com.draconomicon.api.service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import com.draconomicon.api.model.User;
 import com.draconomicon.api.repository.UserRepository;
@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findAll();
 	}
 
+	@Override
+	public Optional<User> userLecture(long id_user) {
+		return userRepository.findById(id_user);
+	}
+	
 	@Override
 	public User modifier(Long id_user, User user) {
 		return userRepository.findById(id_user)

@@ -1,5 +1,6 @@
-spring:
-    security:
-        user:
-            name: lyrael
-            password: droopy
+# spring:
+#     security:
+#         user:
+#             name: lyrael
+#             password: droopy
+

@@ -20,6 +20,11 @@ body
     font-family: 'Sancreek', cursive;
     background: url("images/test.jpeg");
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* PC "Standard" */
@@ -107,7 +112,11 @@ footer h3
     position: absolute;
     bottom: 0;
 }
-
+/* container */
+#container
+{
+    display: none;
+}
 /* Connexion/Inscription */
 section
 {

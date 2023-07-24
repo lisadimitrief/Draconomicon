@@ -1,7 +1,9 @@
 package com.draconomicon.api.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,8 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
+@CrossOrigin
+
 
 public class UserController {
 	private UserService userService;
@@ -33,6 +37,10 @@ public class UserController {
 		return userService.lire();
 	}
 	
+	@GetMapping("/{id_user}")
+	public Optional<User> read(@PathVariable long id_user){
+		return userService.userLecture(id_user);	
+	}
 	@PutMapping("/{id_user}")
 	public User update(@PathVariable Long id_user, @RequestBody User user){
 		return userService.modifier(id_user, user);	
