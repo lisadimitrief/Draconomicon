@@ -1,5 +1,7 @@
 package com.draconomicon.api.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.*;
 import lombok.*;
 // import com.draconomicon.api.model.Genre;
@@ -10,7 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
@@ -43,5 +45,4 @@ public class User {
 		joinColumns= {@JoinColumn(name="role")}
 	)
 	private int idRole;
-
 }
