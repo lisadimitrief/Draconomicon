@@ -1,17 +1,33 @@
 package com.draconomicon.api.service;
 
-import com.draconomicon.api.model.*;
-import java.util.List;
+
 import java.util.Optional;
 
-public interface UserService {
-	User creer(User user);
-	
-	List<User> lire();
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.draconomicon.api.model.User;
+import com.draconomicon.api.repository.UserRepository;
 
-	Optional<User> userLecture(long id_user);
+import lombok.Data;
+
+@Data
+@Service
+public class UserService {
 	
-	User modifier(Long id_user, User user);
+	@Autowired
+	private UserRepository userRepository;
 	
-	String supprimer(Long id_user);
+	public Optional<User> getUser(final Long id){
+		return userRepository.findById(id);
+	}
+	public Iterable<User> getUser() {
+		return userRepository.findAll();
+	}
+	public void deleteUser(final Long id) {
+		userRepository.deleteById(id);
+	}
+	public User saveUser(User user) {
+		User savedUser = userRepository.save(user);
+		return savedUser;
+	}
 }

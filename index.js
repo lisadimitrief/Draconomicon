@@ -1,5 +1,7 @@
 let header = document.getElementById("head");
 let activePage = document.getElementsByTagName("h1");
+
+if(header == null){}else {
 header.innerHTML= 
     `
         <div id="titre">
@@ -31,7 +33,42 @@ header.innerHTML=
             </a>
             <a id="burger"><img src="images/icone.png"></a>
         </nav>        
+    `;
+}
+///////////////////////////////////////////////////////////////////////
+
+let headerProfil = document.getElementById("headP");
+headerProfil.innerHTML =
     `
+        <div id="titre">
+        <a href="index.html" id="lienAcceuil">
+            <img src="images/draconomicon.png" id="draconomicon">
+        </a>
+        </div>
+        <nav>
+                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Inscription' ? 'id="focus"' : ''}>
+                <imput >Inscription</p>
+            </a>
+            <a href="profil.html">
+                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Profil' ? 'id="focus"' : ''}>
+                <p>Profil</p>
+            </a>
+            <a href="enyclopedie.html">
+                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Encyclopédie' ? 'id="focus"' : ''}>
+                <p>Encyclopédie</p>
+            </a>
+            
+            <a href="blog.html">
+                <img src="images/onglet.png" alt="parchemin déchiré">
+                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Blog' ? 'id="focus"' : ''}>
+                <p>Blog</p>
+            </a>
+            <a id="burger"><img src="images/icone.png"></a>
+        </nav>
+    `;
 
 ///////BURGER///////////////////////////////////////////////////////////////
 
@@ -69,36 +106,5 @@ footer.innerHTML =
     `
         <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
     `
-
-
-
-
-
-
-// boutonD.addEventListener("click", popup());
-// boutonD.addEventListener("dblclick", poplus());
-// container.style.display="none";
-// function popup(){
-//     console.log(container);
-//         container.style.display="block";
-//         boutonD.style.position= "fixed";
-//         boutonD.style.bottom= 5+"em";
-//         boutonD.style.top= none;
-//     };
-//     function poplus(){
-//         console.log(container);
-//         container.style.display="none";
-//         boutonD.style.bottom= none;
-//         boutonD.style.top= 0;
-//     };
-//     // function test() {
-//     // if (container.style.display="block"?) {
-//     //     // container.style.display="none";
-//     //     // boutonD.style.bottom= none;
-//     //     // boutonD.style.top= 0;
-//     // } else {
-//     //     container.style.display="block";
-//     //     boutonD.style.position= "fixed";
-//     //     boutonD.style.bottom= 5+"em";
-//     // }
-//     // } 
+//////Profil/////////////////////////////////////////
+let Profil = document.getElementById("secProfil");
