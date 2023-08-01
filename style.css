@@ -20,6 +20,11 @@ body
     font-family: 'Sancreek', cursive;
     background: url("images/test.jpeg");
     background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* PC "Standard" */
@@ -28,7 +33,7 @@ body
 {
     display: none;
 }
-#head, #foot
+#head, #foot, #headP
 {
     background: url("images/headFoot.jpeg");
     width: 100%;
@@ -107,7 +112,11 @@ footer h3
     position: absolute;
     bottom: 0;
 }
-
+/* container */
+#container, #imgInscrV
+{
+    display: none;
+}
 /* Connexion/Inscription */
 section
 {
@@ -119,7 +128,7 @@ section
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4em;
+    margin-top: 8em;
     width: 100%;
     height: 100%;
 }
@@ -138,7 +147,7 @@ section
 #deco
 {
     position: absolute;
-    top: 3.5em;
+    top: 7.5em;
     display: flex;
     justify-content: center;
     align-items: space-between;
@@ -280,6 +289,11 @@ a:visited
 }
 
 @media screen and (max-width: 430px){
+    /* container */
+    #container
+    {
+        display: block;
+    }
     #burger
     {
         display: flex;
@@ -302,11 +316,11 @@ a:visited
         width: 15em;
         height: auto;
     }
-    nav a input, #titre, #imgInscr, nav a:not(#burger) img, nav a p, #deco
+    nav a input, #titre, #imgInscr, nav a:not(#burger) img, nav a p, #deco, #imgInscr
     {
         display: none;
     }
-    #head
+    #head, #headP
     {
         background: none;
     }

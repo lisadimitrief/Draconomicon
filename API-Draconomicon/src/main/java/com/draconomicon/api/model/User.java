@@ -1,47 +1,88 @@
 package com.draconomicon.api.model;
 
-import jakarta.persistence.*;
-import lombok.*;
-// import com.draconomicon.api.model.Genre;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.draconomicon.api.config.Rank;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @Entity
-@Table(name= "user")
+@Builder
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-public class User {
+@Table(name = "user")
+public class User implements UserDetails{
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idUser;
-
-	@Column(name="username", length = 20)
-	private String username;
-
-    @Column(name="mail", length = 30)
-	private String mail;
-    
-    @Column(name="password", length = 256)
-	private String password;
-	
-    @Column(name="age")
-	private int age;
-	
-	@Column(name="id_genre")
-	@JoinTable(
-		name="genre",
-		joinColumns= {@JoinColumn(name="genre")}
-	)
-	private int idGenre;
-    
-    @Column(name="avatar", length = 25)
-	private String avatar;
-    
-    @Column(name="id_role")
-	@JoinTable(
-		name="role",
-		joinColumns= {@JoinColumn(name="role")}
-	)
+	 private long idUser;
+	@Column(name="genre_User")
+	 private Boolean genreUser;
+	@Column(name="id_role")
 	private int idRole;
-
+	@Column(name="username")
+	 private String username;
+	 private int age;
+	 private String mail;
+	 private String password;
+	 @Enumerated(EnumType.STRING)
+	 @Transient
+	 private Rank role;
+	 
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return username;
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		if(this.idRole == 1) {
+			this.setRole(Rank.ADMIN);
+		} else {
+			this.setRole(Rank.USER);
+		}
+		return role.getAuthorities();
+	}
 }
