@@ -2,6 +2,7 @@ package com.draconomicon.api.controller;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,13 @@ public class UserController {
 		return userService.getUser();
 	}
 	
+	@GetMapping("usercurrent")
+	public User currentUser() {
+		User toto = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println(toto.toString());
+		return toto;
+	}
+
 	@GetMapping("/user/{id}")
 	public User getProfil(@PathVariable("id") final Long id){
 		Optional<User> user = userService.getUser(id);
@@ -61,11 +69,15 @@ public class UserController {
 			if(age != 0) {
 				currentUser.setAge(age);
 			}
-			boolean genreUser = user.getGenreUser();
+			int genreUser = user.getGenreUser();
 			currentUser.setGenreUser(genreUser);
 			int idRole = user.getIdRole();
 			if(idRole != 0) {
 				currentUser.setIdRole(idRole);
+			}
+			String avatar = user.getAvatar();
+			if(avatar != null) {
+				currentUser.setAvatar(avatar);
 			}
 			userService.saveUser(currentUser);
 			return currentUser;
@@ -85,7 +97,8 @@ public class UserController {
 			String password = user.getPassword();
 			int age = user.getAge();
 			int idRole = user.getIdRole();
-			boolean genreUser = user.getGenreUser();
+			// String avatar = user.getAvatar();
+			int genreUser = user.getGenreUser();
 			if(username != null && mail != null && password != null && age != 0 && idRole != 0) {
 				currentUser.setUsername(username);
 				currentUser.setMail(mail);

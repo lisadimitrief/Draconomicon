@@ -30,7 +30,7 @@ public class AuthenticationService {
 				.password(passwordEncoder.encode(request.getPassword()))
 				.mail(request.getMail())
 				.age(request.getAge())
-				// .genreUser(request.getGenreUser())
+				.genreUser(1) // .genreUser(request.getGenreUser())
 				.idRole(1)
 				.role(Rank.USER)
 				.build();

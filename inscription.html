@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="images/icone.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="index.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="inscription.js"></script>
     <title>Draconomicon - Inscription</title>
-    <meta name="desciption" content="Voici la page inscription du projet Draconomicon">
+    <meta name="description" content="Voici la page inscription du projet Draconomicon">
 </head>
 <body>
     <header id="head">
@@ -19,7 +21,7 @@
         <img src="images/parcheminV.png" alt="" id="imgInscrV">
         <div class="formTitre">
             <h1 class="titre">Inscription</h1>
-            <form action="localhost:8080/login" method="POST" id="inscription">
+            <form onsubmit="inscription(this); return false" id="inscription">
                 
                 <div>
                     <label>Nom d'utilisateur</label>
@@ -36,16 +38,23 @@
                     <input type="password" name="password">
                 </div>
 
-                <div>
+                <!-- <div>
                     <label>Confirmation mot de passe</label>
                     <input type="password" name="password">
-                </div>
+                </div> -->
 
                 <div>
-                    <label>Date de Naissance</label>
-                    <input type="date" name="date">
+                    <label>Age</label>
+                    <input type="number" name="age">
                 </div>
-                
+
+                <label for="genre-selection">Genre :</label>
+                <select name="genre" id="genre-selection">
+                    <option value="">...</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Autre">Autre</option>
+                </select>
                 <div>
                     <label class="invisible">invisible</label>
                     <input type="submit" id="valideInsc" value="Envoyer">

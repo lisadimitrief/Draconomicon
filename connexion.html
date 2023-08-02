@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="images/icone.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="index.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="connexion.js"></script>
     <title>Draconomicon - Connexion</title>
-    <meta name="desciption" content="Voici la page connexion du projet Draconomicon">
+    <meta name="description" content="Voici la page connexion du projet Draconomicon">
 </head>
 <body>
     <header id="head">
@@ -19,11 +21,12 @@
         <img src="images/parchemin.png" alt="" id="imgInscr">
         <div class="formTitre">
             <h1 class="titre">Connexion</h1>
-            <form action="localhost:8080/login" method="POST" id="inscription" id="connexion">
+            <!-- <form action="http://localhost:8080/login" method="POST" id="inscription" id="connexion"> -->
+            <form onsubmit="connexion(this); return false" id="inscription" id="connexion">
                 
                 <div>
-                    <label>Email</label>
-                    <input type="texte" name="mail" maxlength="20">
+                    <label>Pseudo</label>
+                    <input type="texte" name="username" maxlength="20">
                 </div>
                 
                 <div>

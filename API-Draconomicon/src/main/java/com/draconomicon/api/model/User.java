@@ -37,12 +37,15 @@ public class User implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private long idUser;
-	@Column(name="genre_User")
-	 private Boolean genreUser;
+//	@Column(name="genre_User")
+    @Column(name="id_genre")
+	 private int genreUser;
 	@Column(name="id_role")
 	private int idRole;
 	@Column(name="username")
 	 private String username;
+	@Column(name="avatar")
+	 private String avatar;
 	 private int age;
 	 private String mail;
 	 private String password;

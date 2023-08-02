@@ -195,7 +195,7 @@ CREATE TABLE `user` (
   `password` varchar(256) NOT NULL,
   `age` int NOT NULL,
   `id_genre` int NOT NULL,
-  `avatar` varchar(25) NOT NULL,
+  `avatar` varchar(25),
   `id_role` int NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `fk_role_user_idx` (`id_role`),

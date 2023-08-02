@@ -38,6 +38,7 @@ header.innerHTML=
 ///////////////////////////////////////////////////////////////////////
 
 let headerProfil = document.getElementById("headP");
+if(headerProfil == null){}else {
 headerProfil.innerHTML =
     `
         <div id="titre">
@@ -69,6 +70,7 @@ headerProfil.innerHTML =
             <a id="burger"><img src="images/icone.png"></a>
         </nav>
     `;
+}
 
 ///////BURGER///////////////////////////////////////////////////////////////
 
@@ -106,5 +108,3 @@ footer.innerHTML =
     `
         <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
     `
-//////Profil/////////////////////////////////////////
-let Profil = document.getElementById("secProfil");
