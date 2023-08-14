@@ -4,11 +4,15 @@ import com.draconomicon.api.model.*;
 import java.util.List;
 
 public interface BlogService {
-	Blog creer(Blog blog);
+	Blog creer(BlogRequest request);
 	
+	List<Blog> rechercher(String username);
 	List<Blog> lire();
 	
 	Blog modifier(Long id_blog, Blog blog);
 	
 	String supprimer(Long id_blog);
+
+	BlogResponse response(Blog b);
+	List<BlogResponse> responses(List<Blog> blogs);
 }

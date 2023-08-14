@@ -10,27 +10,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.draconomicon.api.model.Blog;
+import com.draconomicon.api.model.BlogRequest;
+import com.draconomicon.api.model.BlogResponse;
 import com.draconomicon.api.service.BlogService;
 
 import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/blog")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
-
 public class BlogController {
 	private BlogService blogService;
 	
 	@PostMapping()
-	public Blog create(@RequestBody Blog blog) {
-		return blogService.creer(blog);
+	public BlogResponse create(@RequestBody BlogRequest request) {
+		Blog b = blogService.creer(request);
+		return blogService.response(b);
 	}
 	
+	@GetMapping("/{username}")
+	public List<BlogResponse> search(@PathVariable String username){
+		return blogService.responses(blogService.rechercher(username));
+	}
+
 	@GetMapping()
-	public List<Blog> read(){
-		return blogService.lire();
+	public List<BlogResponse> read(){
+		return blogService.responses(blogService.lire());
 	}
 	
 	@PutMapping("/{id_blog}")

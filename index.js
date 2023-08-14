@@ -35,7 +35,7 @@ header.innerHTML=
         </nav>        
     `;
 }
-///////////////////////////////////////////////////////////////////////
+////////CONNECTER///////////////////////////////////////////////////////////////
 
 let headerProfil = document.getElementById("headP");
 if(headerProfil == null){}else {
@@ -47,21 +47,20 @@ headerProfil.innerHTML =
         </a>
         </div>
         <nav>
-                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
-                <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Inscription' ? 'id="focus"' : ''}>
-                <imput >Inscription</p>
-            </a>
             <a href="profil.html">
                 <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                 <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Profil' ? 'id="focus"' : ''}>
                 <p>Profil</p>
+            </a>
+            <a href="index.html" id="deconnexion">
+                <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
+                <p>Déconnexion</p>
             </a>
             <a href="enyclopedie.html">
                 <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                 <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Encyclopédie' ? 'id="focus"' : ''}>
                 <p>Encyclopédie</p>
             </a>
-            
             <a href="blog.html">
                 <img src="images/onglet.png" alt="parchemin déchiré">
                 <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Blog' ? 'id="focus"' : ''}>
@@ -71,6 +70,12 @@ headerProfil.innerHTML =
         </nav>
     `;
 }
+
+let deconnexion = document.getElementById("deconnexion");
+deconnexion.addEventListener("click",()=>{
+  window.localStorage.removeItem("token");
+  window.location.pathname = "/index.html"
+})
 
 ///////BURGER///////////////////////////////////////////////////////////////
 

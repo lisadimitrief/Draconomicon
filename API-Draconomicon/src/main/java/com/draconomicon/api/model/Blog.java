@@ -13,20 +13,17 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Blog {
+public class Blog{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idBlog;
+	private Long idBlog;
 
 	@Column(name="titre", length = 25)
 	private String titre;
 
     @Column(name="contenu")
 	private String contenu;
-    
-    @Column(name="image", length = 25)
-	private String image;
-	
+    	
     @Column(name="date_blog")
 	@CreationTimestamp
 	private Timestamp dateBlog;
@@ -36,5 +33,5 @@ public class Blog {
 			name="user",
 			joinColumns= {@JoinColumn(name="id_user")}
 			)
-	private int idUser;
+	private Long idUser;
 }

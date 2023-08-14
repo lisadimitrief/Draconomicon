@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.draconomicon.api.model.Role;
 import com.draconomicon.api.service.RoleService;
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/role")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 
 public class RoleController {

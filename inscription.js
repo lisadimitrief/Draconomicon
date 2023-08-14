@@ -9,14 +9,15 @@ function inscription(formulaire){
       mail: formulaire.elements["mail"].value,
       password: formulaire.elements["password"].value,
       age: formulaire.elements["age"].value,
-      genreProfil: 1
-    },
+      idGenre: formulaire.elements["genre"].value
+    }
 }).then((res) => {
     // ici tu récupères le retour de l'api, et tu l'exploites comme tu veux ; ça peut être du texte ou un json
     // tes données que te renvoie l'api sont dans res.data
     // window.localStorage.setItem("token", res.data.token);
     // window.location.pathname = "/profil.html"
-  console.log(res);
+    window.location.pathname = "/connexion.html"
+    console.log(res);
   }).catch((error) => {
     console.log(error)
     alert("Tu t'es trompé dans ta saisie");

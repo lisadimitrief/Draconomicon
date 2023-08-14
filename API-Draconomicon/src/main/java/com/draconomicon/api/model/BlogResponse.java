@@ -1,5 +1,7 @@
 package com.draconomicon.api.model;
 
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,12 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
-
+public class BlogResponse {
 	private String username;
-	private String mail;
-	private String password;
-	private int age;
-	private int idGenre;
-	private int idRole;
+	private String titre;
+	private String contenu;
+	private Timestamp dateBlog;
 }

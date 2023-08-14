@@ -8,21 +8,29 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 
 import lombok.RequiredArgsConstructor;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+// import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+
 public class SecurityConfig{
     private final JwtAuthenticationFilter jwtAuthFilter;
 	private final AuthenticationProvider authenticationProvider;
 	@Bean
 	public SecurityFilterChain apiSecurity(HttpSecurity http) throws Exception {
         http
-        .cors(withDefaults())
+        .cors((cors) -> cors.configurationSource(request -> {
+                CorsConfiguration config = new CorsConfiguration();
+                config.addAllowedOrigin("*"); // Allow all origins. You can restrict it to specific origins if needed.
+                config.addAllowedMethod("*"); // Allow all HTTP methods.
+                config.addAllowedHeader("*"); // Allow all headers.
+                return config;
+            }))
         .csrf((csrf) -> csrf.disable())
         .authorizeHttpRequests((auth) -> auth
         				.requestMatchers("/login").permitAll()

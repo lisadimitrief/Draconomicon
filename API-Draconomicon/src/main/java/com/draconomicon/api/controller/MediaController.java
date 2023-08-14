@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.draconomicon.api.model.Media;
 import com.draconomicon.api.service.MediaService;
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/media")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 
 public class MediaController {

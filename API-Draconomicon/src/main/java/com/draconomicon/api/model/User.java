@@ -37,9 +37,8 @@ public class User implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private long idUser;
-//	@Column(name="genre_User")
     @Column(name="id_genre")
-	 private int genreUser;
+	 private int idGenre;
 	@Column(name="id_role")
 	private int idRole;
 	@Column(name="username")

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,6 +19,7 @@ import com.draconomicon.api.model.User;
 import com.draconomicon.api.service.UserService;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserController {
 	
 	@Autowired
@@ -27,12 +29,10 @@ public class UserController {
 	public Iterable<User> getUser() {
 		return userService.getUser();
 	}
-	
-	@GetMapping("usercurrent")
+	@GetMapping("/usercurrent")
 	public User currentUser() {
-		User toto = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println(toto.toString());
-		return toto;
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		return user;
 	}
 
 	@GetMapping("/user/{id}")
@@ -69,8 +69,8 @@ public class UserController {
 			if(age != 0) {
 				currentUser.setAge(age);
 			}
-			int genreUser = user.getGenreUser();
-			currentUser.setGenreUser(genreUser);
+			int idGenre = user.getIdGenre();
+			currentUser.setIdGenre(idGenre);
 			int idRole = user.getIdRole();
 			if(idRole != 0) {
 				currentUser.setIdRole(idRole);
@@ -98,13 +98,13 @@ public class UserController {
 			int age = user.getAge();
 			int idRole = user.getIdRole();
 			// String avatar = user.getAvatar();
-			int genreUser = user.getGenreUser();
+			int idGenre = user.getIdGenre();
 			if(username != null && mail != null && password != null && age != 0 && idRole != 0) {
 				currentUser.setUsername(username);
 				currentUser.setMail(mail);
 				currentUser.setPassword(password);
 				currentUser.setAge(age);
-				currentUser.setGenreUser(genreUser);
+				currentUser.setIdGenre(idGenre);
 				userService.saveUser(currentUser);
 			return currentUser;
 			} else {

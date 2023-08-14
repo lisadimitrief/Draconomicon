@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.draconomicon.api.model.Encyclopedie;
 import com.draconomicon.api.service.EncyclopedieService;
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/encyclopedie")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 
 public class EncyclopedieController {
