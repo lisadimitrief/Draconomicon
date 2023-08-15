@@ -33,6 +33,8 @@ public class SecurityConfig{
             }))
         .csrf((csrf) -> csrf.disable())
         .authorizeHttpRequests((auth) -> auth
+                        .requestMatchers("/blog/viewall").permitAll()
+                        .requestMatchers("/blog/search/{username}").permitAll()
         				.requestMatchers("/login").permitAll()
         				.requestMatchers("/register").permitAll()
         				.requestMatchers("/admin").hasRole("ADMIN")

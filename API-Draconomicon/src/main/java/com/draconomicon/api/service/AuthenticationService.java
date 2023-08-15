@@ -32,6 +32,7 @@ public class AuthenticationService {
 				.age(request.getAge())
 				.idGenre(request.getIdGenre()) // .idGenre(request.getIdGenre())
 				.idRole(1)
+				.avatar("dragon.jfif")
 				.role(Rank.USER)
 				.build();
 		repository.save(user);

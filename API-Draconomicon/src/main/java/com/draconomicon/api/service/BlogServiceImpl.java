@@ -58,8 +58,15 @@ public class BlogServiceImpl implements BlogService{
 
 	@Override
 	public String supprimer(Long id_blog) {
-		blogRepository.deleteById(id_blog);
-		return "Blog deleted";
+		Blog blog = blogRepository.findById(id_blog).orElseThrow(() -> new RuntimeException("Blog not found"));
+		User userCo = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (blog.getIdUser()==userCo.getIdUser()) {
+			blogRepository.deleteById(id_blog);
+			return "Blog deleted";
+		} else {
+			return "Ce n'est pas TON POST";
+		}
+		
 	}
 
 
@@ -67,6 +74,7 @@ public class BlogServiceImpl implements BlogService{
 	public BlogResponse response(Blog b){
 		User user = userRepository.findById(b.getIdUser()).orElseThrow();
 		BlogResponse br = new BlogResponse(
+			b.getIdBlog(),
 			user.getUsername(),
 			b.getTitre(), 
 			b.getContenu(),

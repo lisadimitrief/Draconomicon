@@ -33,7 +33,7 @@ CREATE TABLE `blog` (
   PRIMARY KEY (`id_blog`),
   KEY `fk_user_blog_idx` (`id_user`),
   CONSTRAINT `fk_user_blog` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `blog` (
 
 LOCK TABLES `blog` WRITE;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
-INSERT INTO `blog` VALUES (7,'Les Dragons','Un serpent de mer arrive à bon port  Il rencontre des journalistes  Il leur explique quel est son sort  Et pourquoi il se sent si triste  Et d\'où vient le fait qu\'il existe  Au bout de peu de temps on se familiarise  On l\'appelle par son petit nom  Les femmes veulent lui faire des bises  Un chasseur prépare du petit plomb  Quand il parle maintenant on ricane  Plus question de lui à la télévision  On lui reproche d\'obstruer la porte océane  Ce qui amène de nombreuses protestations  Alors il retourne vers sa solitude marine  Avant qu\'on ne lui fasse un mauvais sort','2023-08-14 14:16:09.319948',4),(9,'Game of Throne','«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»','2023-08-14 14:40:37.719992',1),(10,'Dragons','Hiccup est un adolescent viking de l\'île de Berk, où se battre avec des dragons est un mode de vie. Ses idées progressistes et son sens de l\'humour étrange le tiennent à part des autres, malgré le fait que son père est le chef du clan.','2023-08-14 14:41:36.585815',1);
+INSERT INTO `blog` VALUES (9,'Game of Throne','«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»','2023-08-14 14:40:37.719992',1),(10,'Dragons','Hiccup est un adolescent viking de l\'île de Berk, où se battre avec des dragons est un mode de vie. Ses idées progressistes et son sens de l\'humour étrange le tiennent à part des autres, malgré le fait que son père est le chef du clan.','2023-08-14 14:41:36.585815',1),(11,'Mon Amour de Wyverne','Mon copain adore les dragons ! Même si il se trompe souvent sur la race ^^\', je compte lui montrer l\'encyclopédie de ce site internet !','2023-08-15 08:37:14.931212',12);
 /*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `user` (
   KEY `fk_genre_user_idx` (`id_genre`),
   CONSTRAINT `fk_genre_user` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`),
   CONSTRAINT `fk_role_user` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'The Doctor','johnsmith@email.uk','i am the doctor',911,3,'dragon.jpg',2),(3,'Lyrael Droppy','droopygirl@email.fr','mylovekitten',69,3,'dragon.jpg',1),(4,'benoit','benoit@toto.fr','$2a$10$FD5PVrN3LQci3fpsKz46keE4QPtkPkR/d1rpXyg7JZNGElOQ0Pljy',35,1,NULL,1),(5,'toto','toto@titi.fifi','$2a$10$fGkjDHOw3DAc.oaxUCsdd.XJS0bN53BnVLlo.ehtvXD5kq47wLupa',69,1,NULL,1),(7,'aba','aba@aba.fr','$2a$10$Ag1MyzYyeQUDpYaIeoqW1.CVclA6vp03ASERNuV9tv9ONkxa/QISi',22,1,NULL,1),(8,'bonjour','bonjour@bonjour.fr','$2a$10$yqiEeELHoBHoMHhPzVVcfOnK6l9S1NF/aE8DZw8OsbKmeAfsf4arS',55,1,NULL,1),(9,'x','x@x.fr','$2a$10$htecpckVtAR1dPtJvSGiIezHluqUNc8R.EeiY7F0ZzExnDx4ginDC',474,1,NULL,1),(10,'zz','z@z.zz','$2a$10$rVzRq6rewzM/V/SL6GPCzucV9HLuAdUAn7I4bqzm14fYhvsdxwVjK',23,1,NULL,1),(11,'stef','steff@steffi.fr','$2a$10$49pJx.Z.nHzS6235TvYsL.oTXd8LSHafJeCZR6H8pXaIwAjhwuSnu',44,3,NULL,1);
+INSERT INTO `user` VALUES (1,'The Doctor','johnsmith@email.uk','i am the doctor',911,3,'dragon.jfif',2),(3,'Lyrael Droppy','droopygirl@email.fr','mylovekitten',69,3,'dragon.jfif',1),(4,'benoit','benoit@droopy.fr','$2a$10$FD5PVrN3LQci3fpsKz46keE4QPtkPkR/d1rpXyg7JZNGElOQ0Pljy',35,2,'kirin.jpg',1),(12,'Lyrael','lisou-lisa_diana@hotmail.fr','$2a$10$6qYfjUzTqYUjWiMCzVXIyOcqf4J7B.NqxdnDI7kJqwiIKl92LqPEO',24,1,'dragon.jfif',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-14 17:22:14
+-- Dump completed on 2023-08-15 16:43:48

@@ -32,12 +32,12 @@ public class BlogController {
 		return blogService.response(b);
 	}
 	
-	@GetMapping("/{username}")
+	@GetMapping("/search/{username}")
 	public List<BlogResponse> search(@PathVariable String username){
 		return blogService.responses(blogService.rechercher(username));
 	}
 
-	@GetMapping()
+	@GetMapping("/viewall")
 	public List<BlogResponse> read(){
 		return blogService.responses(blogService.lire());
 	}

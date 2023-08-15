@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BlogResponse {
+	private Long idBlog;
 	private String username;
 	private String titre;
 	private String contenu;

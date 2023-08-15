@@ -12,7 +12,7 @@
     <title>Blog - Draconomicon</title>
 </head>
 <body>
-    <header id="headP">
+    <header id="head">
         <!-- header generer par l'index.js -->
     </header>
 
@@ -22,12 +22,11 @@
             <input type="search" name="blogCible" id="findUserBlog" placeholder="Blog">
             <input type="submit" value="Rechercher">
         </form>
-        <form onsubmit="postBlog(this); return false">
-                <input type="text" name="titre" id="titrePost" placeholder="Titre Accrocheur"></br>
-                <input type="text" name="contenu" id="contenuPost" placeholder="Quoi de neuf ?"></br>
-                <!-- <input type="file" name="image" id="imagePost"></br> -->
-                <input type="submit" value="Publier" id="publier">
-        </form>
+        
+        <div id="formPost">
+            <!-- Generer par blog.js -->
+        </div>
+
         <article id="articles">
             <!-- articles generer par le blog.js -->
         </article>
