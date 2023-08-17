@@ -75,6 +75,7 @@ public class BlogServiceImpl implements BlogService{
 		User user = userRepository.findById(b.getIdUser()).orElseThrow();
 		BlogResponse br = new BlogResponse(
 			b.getIdBlog(),
+			user.getAvatar(),
 			user.getUsername(),
 			b.getTitre(), 
 			b.getContenu(),

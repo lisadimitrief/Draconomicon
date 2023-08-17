@@ -13,10 +13,10 @@ function getCurrentUserInfo() {
 
     window.localStorage.setItem("userId", res.data.idUser);
 
-    const avatars = ["amphitere.jpg", "kirin.jpg", "dragon.jfif"];
+    const avatars = ["amphitere.jpg", "kirin.jpg", "dragon.jfif", "amphitere2.jpg", "dragon2.jpg", "dragonAsiatique.jfif", "dragonAsiatique2.jpg", "dragonMagique.jpg", "dragonSteampunk.jfif", "dragonSteampunkMagique.jfif"];
     const images = avatars.map(avatar => {
         if (user.avatar !== avatar) {
-            return `<img src="images/avatar/${avatar}" onclick="modifAvatar('${avatar}')"/>`;
+            return `<div class="hexagone"><div class="hexagonemain"><div class="hexagonemainbefore"><img src="images/avatar/${avatar}" onclick="modifAvatar('${avatar}')"/></div></div></div>`;
         } else {
             return "";
         }
@@ -24,12 +24,18 @@ function getCurrentUserInfo() {
 
     boiteProfil.innerHTML = 
         `
-            <div>
-                <div>
+            <div id="imagesProfil">
+                <div id="headProfil">
+                    <div class="hexagone">
+                        <div class="hexagonemain">
+                            <div class="hexagonemainbefore">
+                                <img src="images/avatar/${user.avatar}" alt="">
+                            </div>
+                        </div>
+                    </div>
                     <h3>${user.username}</h3>
-                    <img src="images/avatar/${user.avatar}" alt="">
                 </div>
-                <div>
+                <div id="choixAvatar">
                 `
                 +
                 images.join("")
@@ -39,30 +45,31 @@ function getCurrentUserInfo() {
                 +
                     `
                 </div>
-                <form onsubmit="modif(this)">
-                    <div>
-                        <label>Pseudo</label>
-                        <input type="texte" name="username" maxlength="20" value="${user.username}">
-                    </div>
-                    <div>
-                        <label>E-mail</label>
-                        <input type="texte" name="mail" maxlength="30" value="${user.mail}">
-                    </div>
-                    <div>
-                        <label>Age</label>
-                        <input type="number" name="age" value="${user.age}">
-                    </div>
-                    <div>
-                        <label for="genre-selection">Genre :</label>
-                        <select name="idGenre" id="genre-selection">
-                            <option value="1" ${user.idGenre === 1 ? "selected":""}>Femme</option>
-                            <option value="2" ${user.idGenre === 2 ? "selected":""}>Homme</option>
-                            <option value="3" ${user.idGenre === 3 ? "selected":""}>Autre</option>
-                        </select>
-                    </div>
-                    <input type="submit">
-                </form>
-            </div>    
+            </div>
+            <form onsubmit="modif(this)">
+                <label>Mes Informations</label>
+                <div>
+                    <label>Pseudo</label>
+                    <input type="texte" name="username" maxlength="20" value="${user.username}">
+                </div>
+                <div>
+                    <label>E-mail</label>
+                    <input type="texte" name="mail" maxlength="30" value="${user.mail}">
+                </div>
+                <div>
+                    <label>Age</label>
+                    <input type="number" name="age" value="${user.age}">
+                </div>
+                <div>
+                    <label for="genre-selection">Genre :</label>
+                    <select name="idGenre" id="genre-selection">
+                        <option class="optionCible" value="1" ${user.idGenre === 1 ? "selected":""}>Femme</option>
+                        <option class="optionCible" value="2" ${user.idGenre === 2 ? "selected":""}>Homme</option>
+                        <option class="optionCible" value="3" ${user.idGenre === 3 ? "selected":""}>Autre</option>
+                    </select>
+                </div>
+                <input type="submit" value="Valider">
+            </form>
         `;
 
     }).catch((error) => {
@@ -112,21 +119,23 @@ function modifAvatar(avatar){
         console.log(error);
     });
 }
-// Faire un axios basique :
-// axios({
-    //   url: 'http://localhost:8080/usercurrent', // l'URL que tu vises ; pour ton api ça serait qqchose du genre http://localhost:8080/api/user/register ?
-    //   withCredentials: false, 
-    //   headers: { 
-    //       "Authorization" : `Bearer ${token}`,
-    //      "Access-Control-Allow-Origin":"*"
-    //     }
-    // }).then((res) => {
-      // console.log(res.data);
 
-      // let nom = document.getElementById("nom");
-      // // nom.innerHTML = res.data.username
-      // nom.innerHTML = `Mon pseudo c'est ${res.data.username}`
-  
-      // }).catch((error) => {
-      //   console.log(error);
-      // });
+//<div>
+//  <input type="submit" onclick="END(this)" value="Supprimer mon Compte ⚠️">
+//</div>
+// function END(compte){
+//     const token = window.localStorage.getItem("token");
+//     const userId = window.localStorage.getItem("userId");
+//     const headers = { 'Authorization' : `Bearer ${token}` };
+//     const url = `http://localhost:8080/user/${userId}`;
+//     axios({
+//         headers,
+//         url,
+//         method: 'delete'
+//         }
+//     ).then((res) => {
+//         window.location.pathname = "/index.html"
+//     }).catch((error) => {
+//         console.log(error);
+//     });
+// }

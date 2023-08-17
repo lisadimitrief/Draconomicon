@@ -18,7 +18,7 @@ public class Blog{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idBlog;
 
-	@Column(name="titre", length = 25)
+	@Column(name="titre", length = 35)
 	private String titre;
 
     @Column(name="contenu")

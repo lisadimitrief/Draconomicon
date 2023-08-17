@@ -18,14 +18,15 @@ if (!(token===null || token===undefined)) {
 function postBlog(formulaire){
   const token = window.localStorage.getItem("token");
   axios({
-    method: 'post', // get, post, put, delete...
-    url: 'http://localhost:8080/blog', // l'URL que tu vises ; pour ton api ça serait qqchose du genre http://localhost:8080/api/user/register ?
+    method: 'post',
+    url: 'http://localhost:8080/blog',
     headers: {"Authorization" : `Bearer ${token}`},
     data: {
       titre: formulaire.elements["titre"].value,
       contenu: formulaire.elements["contenu"].value
     }
   }).then((res) => {
+    titre===null?error:titre
     console.log(res);
   }).catch((error) => {
     console.log(error)
@@ -38,8 +39,6 @@ function publications() {
         method: "get",
         url: 'http://localhost:8080/blog/viewall',
     }).then((res)=>{
-        console.log(res.data);
-
         let article = document.getElementById("articles");
         article.innerHTML = res.data.map(fil=> 
             afficheBlog(fil)
@@ -52,7 +51,6 @@ function publicationsDe(formulaire) {
         method: "get",
         url: `http://localhost:8080/blog/search/${blogCible}`,
     }).then((res)=>{
-        console.log(res.data);
         let article = document.getElementById("articles");
         article.innerHTML = res.data.map(fil=> 
             afficheBlog(fil)
@@ -60,20 +58,31 @@ function publicationsDe(formulaire) {
 }
 
 function afficheBlog(fil) {
-    console.log(username, fil.username);
     return  `
-                <div id="${fil.idBlog}">
-                    <div>
-                        <h3 id="userPost">${fil.username}</h3>
-                        <h3>${new Date(Date.parse(fil.dateBlog)).toLocaleString()}</h3>
-            `
-            +
-            (username===fil.username?`<button id="X" onclick="deletePost(this)">X</button>`:``)
-            +
-            `
-                    </div>
-                    <h3>${fil.titre}</h3>
-                    <p>${fil.contenu}</p>
+                <div id="post">
+                        <div id="${fil.idBlog}">
+                            <div id="entetePost">
+                                <div class="hexagoneB">
+                                    <div class="hexagoneBmain">
+                                        <div class="hexagoneBmainbefore">
+                                            <img src="images/avatar/${fil.avatar}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 id="userPost">${fil.username}</h3>
+                                <h3>${new Date(Date.parse(fil.dateBlog)).toLocaleString()}</h3>
+                    `
+                    +
+                    (username===fil.username?`<button id="X" onclick="deletePost(this)">X</button>`:``)
+                    +
+                    `
+                            </div>
+                            <hr />
+                            <div id="contenuPost">
+                                <h3>${fil.titre}</h3>
+                                <p>${fil.contenu}</p>
+                            </div>
+                        </div>
                 </div>
             `;
 }
