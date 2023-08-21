@@ -39,9 +39,6 @@ function getCurrentUserInfo() {
                 `
                 +
                 images.join("")
-                    // <img src="images/avatar/amphitere.jpg" ${user.avatar !== "amphitere.jpg" ? "onclick='modifAvatar(this)'":""}/>
-                    // <img src="images/avatar/kirin.jpg" ${user.avatar !== "kirin.jpg" ? "disabled":""}/>
-                    // <img src="images/avatar/dragon.jfif" ${user.avatar !== "dragon.jfif" ? "disabled":""}/>
                 +
                     `
                 </div>
@@ -119,23 +116,3 @@ function modifAvatar(avatar){
         console.log(error);
     });
 }
-
-//<div>
-//  <input type="submit" onclick="END(this)" value="Supprimer mon Compte ⚠️">
-//</div>
-// function END(compte){
-//     const token = window.localStorage.getItem("token");
-//     const userId = window.localStorage.getItem("userId");
-//     const headers = { 'Authorization' : `Bearer ${token}` };
-//     const url = `http://localhost:8080/user/${userId}`;
-//     axios({
-//         headers,
-//         url,
-//         method: 'delete'
-//         }
-//     ).then((res) => {
-//         window.location.pathname = "/index.html"
-//     }).catch((error) => {
-//         console.log(error);
-//     });
-// }

@@ -75,6 +75,15 @@ if(token===null){
     })
 }
 
+//////FOOTER/////////////////////////////////////////////////////////////////////////////
+
+let footer = document.getElementById("foot");
+footer.innerHTML = 
+    `
+        <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
+    `
+
+
 ///////BURGER///////////////////////////////////////////////////////////////
 
 const boutonD = document.getElementById("burger");
@@ -104,10 +113,3 @@ modal.innerHTML=
 boutonD.onclick = ()=>boutonD.classList.toggle("active");
 boutonD.onclick = ()=>container.classList.toggle("menuBurger");
 
-//////FOOTER/////////////////////////////////////////////////////////////////////////////
-
-let footer = document.getElementById("foot");
-footer.innerHTML = 
-    `
-        <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
-    `

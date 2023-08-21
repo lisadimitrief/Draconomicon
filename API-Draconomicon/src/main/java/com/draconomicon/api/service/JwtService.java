@@ -15,26 +15,27 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
-
 @Service
 public class JwtService {
-	
+
 	private static final String SECRET_KEY = "8cb70b99a9e972ddc15191d6c05a421e2b1393e6f1acc6b18f37e76b4ca5ec2d";
+
 	public String extractUsername(String token) {
 		return extractClaim(token, Claims::getSubject);
 	}
-	
+
 	public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
 		final Claims claims = extractAllClaims(token);
 		return claimsResolver.apply(claims);
 	}
+
 	public String generateToken(UserDetails user) {
 		return generateToken(new HashMap<>(), user);
 	}
+
 	public String generateToken(
 			Map<String, Object> extraClaims,
-			UserDetails userDetails
-	) {
+			UserDetails userDetails) {
 		return Jwts
 				.builder()
 				.setClaims(extraClaims)
@@ -43,16 +44,20 @@ public class JwtService {
 				.signWith(getSignInKey(), SignatureAlgorithm.HS256)
 				.compact();
 	}
+
 	public boolean isTokenValid(String token, UserDetails userDetails) {
 		final String username = extractUsername(token);
 		return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
 	}
+
 	public boolean isTokenExpired(String token) {
 		return extractExpiration(token).before(new Date());
 	}
+
 	private Date extractExpiration(String token) {
 		return extractClaim(token, Claims::getExpiration);
 	}
+
 	private Claims extractAllClaims(String token) {
 		return Jwts
 				.parserBuilder()
@@ -61,6 +66,7 @@ public class JwtService {
 				.parseClaimsJws(token)
 				.getBody();
 	}
+
 	private Key getSignInKey() {
 		byte[] KeyBytes = Decoders.BASE64.decode(SECRET_KEY);
 		return Keys.hmacShaKeyFor(KeyBytes);

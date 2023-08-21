@@ -26,14 +26,14 @@ DROP TABLE IF EXISTS `blog`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `blog` (
   `id_blog` int NOT NULL AUTO_INCREMENT,
-  `titre` varchar(25) NOT NULL,
+  `titre` varchar(35) NOT NULL,
   `contenu` text NOT NULL,
   `date_blog` datetime(6) DEFAULT NULL,
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_blog`),
   KEY `fk_user_blog_idx` (`id_user`),
   CONSTRAINT `fk_user_blog` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `blog` (
 
 LOCK TABLES `blog` WRITE;
 /*!40000 ALTER TABLE `blog` DISABLE KEYS */;
-INSERT INTO `blog` VALUES (9,'Game of Throne','«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»','2023-08-14 14:40:37.719992',1),(10,'Dragons','Hiccup est un adolescent viking de l\'île de Berk, où se battre avec des dragons est un mode de vie. Ses idées progressistes et son sens de l\'humour étrange le tiennent à part des autres, malgré le fait que son père est le chef du clan.','2023-08-14 14:41:36.585815',1),(11,'Mon Amour de Wyverne','Mon copain adore les dragons ! Même si il se trompe souvent sur la race ^^\', je compte lui montrer l\'encyclopédie de ce site internet !','2023-08-15 08:37:14.931212',12);
+INSERT INTO `blog` VALUES (9,'Game of Throne','«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»','2023-08-14 14:40:37.719992',1),(10,'Dragons','Hiccup est un adolescent viking de l\'île de Berk, où se battre avec des dragons est un mode de vie. Ses idées progressistes et son sens de l\'humour étrange le tiennent à part des autres, malgré le fait que son père est le chef du clan.','2023-08-14 14:41:36.585815',1),(11,'Mon Amour de Wyverne','Mon copain adore les dragons ! Même si il se trompe souvent sur la race ^^\', je compte lui montrer l\'encyclopédie de ce site internet !','2023-08-15 08:37:14.931212',12),(15,'Vous connaissez ce film ?','Dans Blanche neige et le chasseur, j\'ai adorer voir les créatures ! J\'ai trouver l\'univers de la forêt vraiment magnifique !','2023-08-15 15:07:11.715547',13),(19,'DragonBall Evolution une insulte ?','Que dire à part que c\'est surement le pire film que j\'ai jamais vu et certainement un des pires films jamais fait : trop court (80 min) le jeu d\'acteur laisse beaucoup à désiré, l\'histoire part dans tout les sens et dans le WTF, et le respect de l\'oeuvre original... c\'est correct. Non je rigole, il y en a juste pas. C\'est pas comme prendre des libertés d\'adaptations ou autre, juste, il n\'y en a pas. ','2023-08-17 14:04:24.215547',4),(21,'test','«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»«Les Targaryen ne sont pas immunisés contre le feu. La naissance des dragons de Daenerys était événement unique, magique, miraculeux. Elle est surnommée l\'Imbrûlée parce qu\'elle a marché dans les flammes et qu\'elle y a survécu. Mais son frère n\'était certainement pas immunisé à cet or fondu»','2023-08-17 12:43:18.688337',4);
 /*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `user` (
   KEY `fk_genre_user_idx` (`id_genre`),
   CONSTRAINT `fk_genre_user` FOREIGN KEY (`id_genre`) REFERENCES `genre` (`id_genre`),
   CONSTRAINT `fk_role_user` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'The Doctor','johnsmith@email.uk','i am the doctor',911,3,'dragon.jfif',2),(3,'Lyrael Droppy','droopygirl@email.fr','mylovekitten',69,3,'dragon.jfif',1),(4,'benoit','benoit@droopy.fr','$2a$10$FD5PVrN3LQci3fpsKz46keE4QPtkPkR/d1rpXyg7JZNGElOQ0Pljy',35,2,'kirin.jpg',1),(12,'Lyrael','lisou-lisa_diana@hotmail.fr','$2a$10$6qYfjUzTqYUjWiMCzVXIyOcqf4J7B.NqxdnDI7kJqwiIKl92LqPEO',24,1,'dragon.jfif',1);
+INSERT INTO `user` VALUES (1,'The Doctor','johnsmith@email.uk','i am the doctor',911,3,'amphitere.jpg',2),(3,'Lyrael Droppy','droopygirl@email.fr','mylovekitten',69,3,'kirin.jpg',1),(4,'Benoit','benoit@droopy.fr','$2a$10$FD5PVrN3LQci3fpsKz46keE4QPtkPkR/d1rpXyg7JZNGElOQ0Pljy',35,2,'dragonAsiatique.jfif',1),(12,'Lyrael','lisou-lisa_diana@hotmail.fr','$2a$10$6qYfjUzTqYUjWiMCzVXIyOcqf4J7B.NqxdnDI7kJqwiIKl92LqPEO',24,1,'dragonAsiatique2.jpg',1),(13,'Samantha','','$2a$10$8aIrYb4/KBs7AUPTsjbd8e9ioKWNlUk2wimzjvYuPSNTd7ihO/4Ui',30,3,'dragon.jfif',1),(16,'benoite','ben','$2a$10$AjAKu3HYfAsI98MpX8mfEus7QN/8mz.S2p6uCXB2EqgTwN2jLVd1.',3,1,'dragon.jfif',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-15 16:43:48
+-- Dump completed on 2023-08-21  7:56:32

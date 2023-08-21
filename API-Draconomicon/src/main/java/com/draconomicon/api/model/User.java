@@ -31,56 +31,55 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
-public class User implements UserDetails{
+public class User implements UserDetails {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private long idUser;
-    @Column(name="id_genre")
-	 private int idGenre;
-	@Column(name="id_role")
+	private long idUser;
+	@Column(name = "id_genre")
+	private int idGenre;
+	@Column(name = "id_role")
 	private int idRole;
-	@Column(name="username")
-	 private String username;
-	@Column(name="avatar")
-	 private String avatar;
-	 private int age;
-	 private String mail;
-	 private String password;
-	 @Enumerated(EnumType.STRING)
-	 @Transient
-	 private Rank role;
-	 
+	@Column(name = "username")
+	private String username;
+	@Column(name = "avatar")
+	private String avatar;
+	private int age;
+	private String mail;
+	private String password;
+	@Enumerated(EnumType.STRING)
+	@Transient
+	private Rank role;
+
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return username;
 	}
+
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		if(this.idRole == 1) {
+		if (this.idRole == 1) {
 			this.setRole(Rank.ADMIN);
 		} else {
 			this.setRole(Rank.USER);

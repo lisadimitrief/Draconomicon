@@ -14,19 +14,19 @@ import com.draconomicon.api.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
 
-
 @RestController
 @CrossOrigin
 @RequiredArgsConstructor
 public class AuthenticationController {
 	@Autowired
 	private final AuthenticationService service;
-	
+
 	@PostMapping("/register")
 	public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
 		return ResponseEntity.ok(service.register(request));
-		
+
 	}
+
 	@PostMapping("/login")
 	public ResponseEntity<AuthenticationResponse> login(@RequestBody AuthenticationRequest request) {
 		return ResponseEntity.ok(service.authentication(request));
