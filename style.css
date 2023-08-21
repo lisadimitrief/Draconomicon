@@ -343,7 +343,6 @@ a:visited
 {
     z-index: 2;
     display: flex;
-    /* background: url("images/parchemin.png") no-repeat; */
     width: 20em;
     padding-bottom: 1em;
     border-bottom: black 1px solid;

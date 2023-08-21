@@ -3,6 +3,7 @@ package com.draconomicon.api.controller;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+
 	@GetMapping("/user")
 	public Iterable<User> getUser() {
 		return userService.getUser();
@@ -59,7 +64,7 @@ public class UserController {
 
 			String password = user.getPassword();
 			if(password != null) {
-				currentUser.setPassword(password);
+				currentUser.setPassword(passwordEncoder.encode(password));
 			}
 			int age = user.getAge();
 			if(age != 0) {
