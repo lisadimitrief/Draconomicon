@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-
+import com.draconomicon.api.model.AuthenticationResponse;
 import com.draconomicon.api.model.User;
+import com.draconomicon.api.repository.UserRepository;
+import com.draconomicon.api.service.JwtService;
 import com.draconomicon.api.service.UserService;
 
 @RestController
@@ -21,11 +23,16 @@ import com.draconomicon.api.service.UserService;
 public class UserController {
 	
 	@Autowired
+	private JwtService jwtService;
+
+	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
 
 	@GetMapping("/user")
 	public Iterable<User> getUser() {
@@ -47,7 +54,7 @@ public class UserController {
 		}
 	}
 	@PatchMapping("/user/{id}")
-	public User updateProfil(@PathVariable("id") final Long id, @RequestBody User user) {
+	public com.draconomicon.api.model.AuthenticationResponse updateProfil(@PathVariable("id") final Long id, @RequestBody User user) {
 		//profil.setPassword(passwordEncoder.encode(profil.getPassword()));
 		Optional<User> e = userService.getUser(id);
 		if(e.isPresent()) {
@@ -61,9 +68,8 @@ public class UserController {
 			if(mail != null) {
 				currentUser.setMail(mail);;
 			}
-
 			String password = user.getPassword();
-			if(password != null) {
+			if(password != null && !password.isEmpty()) {
 				currentUser.setPassword(passwordEncoder.encode(password));
 			}
 			int age = user.getAge();
@@ -83,7 +89,12 @@ public class UserController {
 				currentUser.setAvatar(avatar);
 			}
 			userService.saveUser(currentUser);
-			return currentUser;
+			
+			User userToken = userRepository.findByUsername(user.getUsername()).orElseThrow();
+			var jwtToken = jwtService.generateToken(userToken);
+			return AuthenticationResponse.builder()
+					.token(jwtToken)
+					.build();
 		} else {
 			return null;
 		}

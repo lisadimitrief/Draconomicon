@@ -51,7 +51,7 @@ function getCurrentUserInfo() {
         `
                 </div>
             </div>
-            <form onsubmit="modif(this)">
+            <form onsubmit="modif(this); return false">
                 <label>Mes Informations</label>
                 <div>
                     <label>Pseudo</label>
@@ -114,7 +114,14 @@ function modif(form) {
     },
   })
     .then((res) => {
-      console.log(res.data);
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("pseudo");
+        window.localStorage.removeItem("userId");
+        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("pseudo", res.data.username);
+        window.location.reload();
+
+        // window.location.pathname = "/connexion.html"
     })
     .catch((error) => {
       console.log(error);

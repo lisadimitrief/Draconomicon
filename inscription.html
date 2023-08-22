@@ -25,31 +25,31 @@
                 
                 <div>
                     <label>Nom d'utilisateur</label>
-                    <input type="text" name="username" maxlength="20">
+                    <input type="text" required name="username" maxlength="20">
                 </div>
                 
                 <div>
                     <label>Email</label>
-                    <input type="e-mail" name="mail" maxlength="30">
+                    <input type="e-mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="mail" maxlength="30">
                 </div>
                 
                 <div>
                     <label>Mot de passe</label>
-                    <input type="password" name="password">
+                    <input type="text" required id="premierMDP">
                 </div>
 
-                <!-- <div>
+                <div>
                     <label>Confirmation mot de passe</label>
-                    <input type="password" name="password">
-                </div> -->
+                    <input type="password" required name="password" id="deuxiemeMDP">
+                </div>
 
                 <div>
                     <label>Age</label>
-                    <input type="number" name="age">
+                    <input type="number" required name="age">
                 </div>
 
                 <label for="genre-selection">Genre :</label>
-                <select name="genre" id="genre-selection">
+                <select required name="genre" id="genre-selection">
                     <option value="">...</option>
                     <option value="1">Femme</option>
                     <option value="2">Homme</option>
