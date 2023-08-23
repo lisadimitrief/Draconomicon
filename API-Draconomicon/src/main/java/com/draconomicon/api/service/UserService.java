@@ -32,7 +32,7 @@ public class UserService {
 	public void deleteUser(final Long id) {
 		User userCo = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (id == userCo.getIdUser()) {
-			blogRepository.deleteAllByIdUser(id);
+			// blogRepository.deleteAllByIdUser(id);
 			userRepository.deleteById(id);
 		} else {
 			throw new RuntimeException("C'est pas ton compte...");

@@ -37,7 +37,7 @@ function postBlog(formulaire){
 function publications() {
     axios({
         method: "get",
-        url: 'http://localhost:8080/blog/viewall',
+        url: 'http://localhost:8080/blog/viewall',  
     }).then((res)=>{
         let article = document.getElementById("articles");
         article.innerHTML = res.data.map(fil=> 

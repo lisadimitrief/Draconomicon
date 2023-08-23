@@ -18,6 +18,8 @@ import com.draconomicon.api.repository.UserRepository;
 import com.draconomicon.api.service.JwtService;
 import com.draconomicon.api.service.UserService;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
@@ -35,7 +37,7 @@ public class UserController {
 	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("/user")
-	public Iterable<User> getUser() {
+	public Iterable<User> getUser() { 
 		return userService.getUser();
 	}
 	@GetMapping("/usercurrent")
@@ -129,6 +131,7 @@ public class UserController {
 	// 		return null;
 	// 	}
 	// }
+	// @Transactional
 	@DeleteMapping("/user/{id}")
 	public void deleteUser(@PathVariable("id") final Long id) {
 		userService.deleteUser(id);

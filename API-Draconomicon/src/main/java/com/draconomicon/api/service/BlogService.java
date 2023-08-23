@@ -12,6 +12,7 @@ public interface BlogService {
 	Blog modifier(Long id_blog, Blog blog);
 	
 	String supprimer(Long id_blog);
+	// String supprimerTout(Long id_user);
 
 	BlogResponse response(Blog b);
 	List<BlogResponse> responses(List<Blog> blogs);
