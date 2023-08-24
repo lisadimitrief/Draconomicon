@@ -24,7 +24,7 @@
             <form onsubmit="inscription(this); return false" id="inscription">
                 
                 <div>
-                    <label>Nom d'utilisateur</label>
+                    <label><span><sup>*</sup></span> Nom d'utilisateur</label>
                     <input type="text" required name="username" maxlength="20">
                 </div>
                 
@@ -34,35 +34,40 @@
                 </div>
                 
                 <div>
-                    <label>Mot de passe</label>
+                    <label><span><sup>*</sup></span> Mot de passe</label>
                     <input type="text" required id="premierMDP">
                 </div>
 
                 <div>
-                    <label>Confirmation mot de passe</label>
+                    <label><span><sup>*</sup></span> Confirmation mot de passe</label>
                     <input type="password" required name="password" id="deuxiemeMDP">
                 </div>
 
                 <div>
-                    <label>Age</label>
+                    <label><span><sup>*</sup></span> Age</label>
                     <input type="number" required name="age" min="14" max="90">
                 </div>
 
-                <label for="genre-selection">Genre :</label>
-                <select required name="genre" id="genre-selection">
-                    <option value="">...</option>
-                    <option value="1">Femme</option>
-                    <option value="2">Homme</option>
-                    <option value="3">Autre</option>
-                </select>
                 <div>
-                    <label class="invisible">invisible</label>
-                    <input type="submit" id="valideInsc" value="Envoyer">
+                    <label for="genre-selection"><span><sup>*</sup></span> Genre :</label>
+                    <select required name="genre" id="genre-selection">
+                        <option value="">...</option>
+                        <option value="1">Femme</option>
+                        <option value="2">Homme</option>
+                        <option value="3">Autre</option>
+                    </select>
                 </div>
 
                 <div class="ligne">
-                    <a href="cgr.html"><label>CGU</label></a>
+                    <a href="cgr.html">
+                        <label id="CGU"><span><sup>*</sup></span> J'accepte les Condition Général d'Utilisation</label>
+                    </a>
                     <input type="checkbox" required name="CGU" class="check">
+                </div>
+
+                <div>
+                    <label class="invisible">invisible</label>
+                    <input type="submit" id="valideInsc" value="Envoyer">
                 </div>
 
                 <div class="ligne">

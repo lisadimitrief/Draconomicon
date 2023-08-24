@@ -34,6 +34,10 @@ a
 {
     text-decoration : none;
 }
+span
+{
+    color: red;
+}
 /* PC "Standard" */
 /* header */
 #burger,#imgInscrV, ul
@@ -138,18 +142,10 @@ section
     width: 100%;
     height: 100%;
 }
-#secInscr label
+#secInscr label:not(#CGU)
 {
     font-size: 1.5em;
 }
-/* #secInscr input:not(.check)
-{
-    width: 20em;
-    height: 2.5em;
-    border: black 2px solid;
-    background-color: rgba(0, 0, 0, 0.687); 
-    border-radius: 8px;
-} */
 #secInscr input:not(.check)
 {
     width: 20em;
@@ -206,6 +202,7 @@ section
 {
     font-family: "HouseOfTheDragon";
     font-weight: 400;
+    margin-top: 1em;
     font-size: 4em;
 }
 form div
@@ -215,7 +212,6 @@ form div
     justify-content: center;
     align-items: center;
     margin: 0.5em;
-    /* width: 100%;0 */
 }
 #inscription div:nth-child(1)
 {
@@ -247,6 +243,11 @@ form div
     grid-column: 2;
     grid-row: 3;
 }
+#inscription div:nth-child(7)
+{
+    grid-column: 1;
+    grid-row: 4;
+}
 .invisible
 {
     visibility: hidden;
@@ -258,6 +259,18 @@ form div
     justify-content: center;
     align-items: center;
 }
+.ligne .lisible, .ligne .lisible ~ a
+{
+    margin-top: -2em;
+    margin-bottom: 2em;
+    text-shadow: rgb(255, 94, 0) 0 0 0.4em ;
+}
+#CGU
+{
+    font-size: 1em;
+    margin-right: 1em;
+    text-shadow: rgb(255, 94, 0) 0 0 0.4em ;
+}
 .lisible
 {
     margin-right: 5.5em;
@@ -267,7 +280,7 @@ form div
     justify-content: center;
     align-items: flex-end;
 }
-.ligne input, .ligne a
+.ligne a
 {
     margin-left: 5px;
 }
@@ -307,20 +320,19 @@ a:visited
 /* Profil */
 #secProfil
 {
-    /* min-height: 0vh; */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 #fondProfil
 {
     position: absolute;
+    top: 7.5em;
     z-index: 0;
     width: 70em;
     height: 43em;
 }
-#secProfil h1
+#secProfil h1, #secBlog h1
 {
     display: none;
 }
@@ -331,6 +343,7 @@ a:visited
     width: 45em;
     justify-content: space-between;
     align-items: center;
+    margin-left: 3em;
 }
 #imagesProfil
 {
@@ -444,7 +457,7 @@ a:visited
 {
     font-size: 1.3em;
 }
-#imagesProfil ~ form input, #imagesProfil ~ form select, #rechercheBlog input, #inscription select, #secInscr input:not(.check)
+#imagesProfil ~ form input, #imagesProfil ~ form select, #rechercheBlog input, #inscription select, #secInscr input:not(.check), #supprimerTout form input
 {
     text-align: center;
     height: 2.5em;
@@ -454,6 +467,11 @@ a:visited
     border: 1px solid #000;
     color: #FFFF;
 }
+#imagesProfil ~ form input, #imagesProfil ~ form select
+{
+    width: 15em;
+}
+
 option
 {
     border: none;
@@ -464,10 +482,53 @@ option
 }
 #imagesProfil ~ form input[type=submit]
 {
-    width: 13em;
+    width: 15em;
+}
+
+#btnSupprime
+{
+    margin-top: 0.5em;
+}
+#btnSupprime:hover, #valideSupprime:hover
+{
+    background: rgb(255,0,0);
+    background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
+    border: none;
+}
+#supprimerTout
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #00000073;
+    z-index: 5;
+    display: none;
+}
+#parcheminSupprime
+{
+    width: 50em;
+    height: 40em;
+    position: absolute;
+    top: 7.5em;
+    right: 30%;
+    z-index: 5;
+}
+#supprimerTout form input
+{
+    width: 20em;
+}
+#formSupprimer
+{
+    top: 17em;
+    position: relative;
+    z-index: 6;
+}
+#formSupprimer label
+{
+    font-size: 1.3em;
 }
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-#imagesProfil ~ form input[type=submit]:hover, #secInscr input[type=submit]:hover, #rechercheBlog input:not(input[type=search]):hover, #formPost input:not(input[type=text]):hover
+#imagesProfil ~ form input[type=submit]:hover, #secInscr input[type=submit]:hover, #rechercheBlog input:not(input[type=search]):hover, #formPost input:not(input[type=text]):hover, #annuleSupprime:hover
 {
     background: rgb(11,65,0);
     background: linear-gradient(180deg, rgba(11,65,0,1) 0%, rgba(43,255,0,1) 100%);
@@ -481,13 +542,10 @@ option
     justify-content: center;
     align-items: center;
 }
-#secBlog h1
-{
-    visibility: hidden;
-}
 #rechercheBlog input:not(input[type=submit])
 {
     border-radius: 0.8em 0 0 0.8em;
+    margin-top: 2em;
     width: 25em;
 }
 #rechercheBlog input:not(input[type=search])
@@ -526,6 +584,10 @@ option
     color: #FFFF;
     border: none;
     width: 30em;
+}
+#inscription input[type=checkbox]
+{
+    width: 2em;
 }
 #formPost input::placeholder, #inscription input::placeholder
 {
@@ -651,12 +713,81 @@ hr
 {
     width: 110em;
 }
-
-
-
-
-
-
+/* //////////////////// */
+#secIndex
+{
+    display: flex;
+    flex-direction: column;
+}
+#imageFond, #imageFond2
+{
+    z-index: 0;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+    top: 25%;
+}
+#imageFond2
+{
+    right: 1px;
+    transform: rotateY(180deg);
+}
+#presentation
+{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+#presentationText
+{
+    display: flex;
+}
+.paragrapheIndex
+{
+    margin: 2em;
+}
+#presentationText p
+{
+    text-indent: 2em;
+    width: 40em;
+}
+#screenshot
+{
+    margin: auto;
+    z-index: 2;
+}
+#presentationFonctionnalite
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -19em;
+    z-index: 3;
+}
+#presentationFonctionnalite img
+{
+    width: 30em;
+    height: 30em;
+}
+.textPub
+{
+    position: absolute;
+    top: 48.5em;
+    margin-left: 5em;
+    color: #000;
+    text-align: center;
+}
+.textPub h2
+{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.textPub p
+{
+    width: 20em;
+}
 
 
 

@@ -25,7 +25,14 @@ function getCurrentUserInfo() {
         ];
         const images = avatars.map((avatar) => {
             if (user.avatar !== avatar) {
-                return `<div class="hexagone"><div class="hexagonemain"><div class="hexagonemainbefore"><img src="images/avatar/${avatar}" onclick="modifAvatar('${avatar}')"/></div></div></div>`;
+                return `
+                    <div class="hexagone">
+                        <div class="hexagonemain">
+                            <div class="hexagonemainbefore">
+                                <img src="images/avatar/${avatar}" onclick="modifAvatar('${avatar}')"/>
+                            </div>
+                        </div>
+                    </div>`;
             } else {
                 return "";
             }
@@ -49,6 +56,7 @@ function getCurrentUserInfo() {
             images.join("") +
             `
             </div>
+            
         </div>
         <form onsubmit="modif(this); return false">
             <label>Mes Informations</label>
@@ -86,7 +94,10 @@ function getCurrentUserInfo() {
                     }>Autre</option>
                 </select>
             </div>
-            <input type="submit" value="Valider">
+            <div>
+                <input type="submit" value="Valider">
+                <input type="button" value="Supprimer mon Compte" id="btnSupprime">
+            </div>
         </form>
         `;
     }).catch((error) => {
@@ -96,10 +107,9 @@ function getCurrentUserInfo() {
 function modif(form) {
     const token = window.localStorage.getItem("token");
     const userId = window.localStorage.getItem("userId");
-    console.log(userId);
     const headers = { Authorization: `Bearer ${token}` };
     const url = `http://localhost:8080/user/${userId}`;
-    if (window.confirm("es-tu sur ?")) {
+    if (window.confirm("es-tu sûr ?")) {
 
         axios({
             headers,
@@ -150,9 +160,9 @@ function modifAvatar(avatar) {
 
 let supprimerTout = document.getElementById("supprimerTout");
 supprimerTout.innerHTML = `
-    <img src="images/parcheminV.png" alt="parchemin vertical">
-    <form onsubmit="supprimeCompte(this); return false">
-        <label>⚠️🔥 Supprimer mon compte et mes publications 🔥⚠️</label>
+    <img src="images/onglet.png" alt="parchemin vertical" id="parcheminSupprime">
+    <form id="formSupprimer" onsubmit="supprimeCompte(this); return false">
+        <div><label id="titreSupprime">⚠️🔥 Supprimer mon compte et mes publications 🔥⚠️</label></div>
         <div>
             <label>Pseudo</label>
             <input type="texte" name="username" maxlength="20">
@@ -165,7 +175,12 @@ supprimerTout.innerHTML = `
 
         <div>
             <label class="invisible">invisible</label>
-            <input type="submit" id="valideInsc" value="Supprimer mon Compte">
+            <input type="submit" id="valideSupprime" value="Supprimer mon Compte">
+        </div>
+
+        <div>
+            <label class="invisible">invisible</label>
+            <input id="annuleSupprime" type="button" id="valideInsc" value="Annuler" >
         </div>
     </form>
 `;
@@ -210,3 +225,15 @@ function supprimeCompte(formulaire) {
         }
     }
 }
+
+let btnSupprime = document.getElementById("btnSupprime");
+let annuleSupprime = document.getElementById("annuleSupprime");
+console.log(btnSupprime, annuleSupprime);
+btnSupprime.addEventListener("click", function(){
+    document.supprimerTout.style.display= "block";
+    console.log("ok");
+})
+annuleSupprime.addEventListener("click", function(){
+    console.log("ok");
+    document.supprimerTout.style.display= "none";
+})
