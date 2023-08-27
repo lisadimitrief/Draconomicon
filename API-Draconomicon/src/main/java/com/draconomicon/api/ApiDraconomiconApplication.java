@@ -8,5 +8,4 @@ public class ApiDraconomiconApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiDraconomiconApplication.class, args);
 	}
-
 }

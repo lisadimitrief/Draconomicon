@@ -95,8 +95,8 @@ function getCurrentUserInfo() {
                 </select>
             </div>
             <div>
-                <input type="submit" value="Valider">
-                <input type="button" value="Supprimer mon Compte" id="btnSupprime">
+            <input type="submit" value="Valider">
+            <input type="button" value="Supprimer mon Compte" id="btnSupprime">
             </div>
         </form>
         `;
@@ -151,6 +151,7 @@ function modifAvatar(avatar) {
         }
     })
     .then((res) => {
+      console.log("ok");
         window.location.reload();
     })
     .catch((error) => {
@@ -187,7 +188,7 @@ supprimerTout.innerHTML = `
 
 function supprimeCompte(formulaire) {
     if (window.confirm("Es-tu sûr ?")) {
-        if (window.confirm("Veux tu vraiment supprimer ton compte ?")) {
+        if (window.confirm("Veux-tu vraiment supprimer ton compte ?")) {
             if (window.confirm("Vraiment sûr ?")) {
                 axios({
                     method: 'post',
@@ -228,11 +229,11 @@ function supprimeCompte(formulaire) {
 
 let btnSupprime = document.getElementById("btnSupprime");
 let annuleSupprime = document.getElementById("annuleSupprime");
-console.log(btnSupprime, annuleSupprime);
-btnSupprime.addEventListener("click", function(){
-    document.supprimerTout.style.display= "block";
-    console.log("ok");
-})
+// console.log(btnSupprime, annuleSupprime);
+// btnSupprime.addEventListener("click", function(){
+//     document.supprimerTout.style.display= "block";
+//     console.log("ok");
+// })
 annuleSupprime.addEventListener("click", function(){
     console.log("ok");
     document.supprimerTout.style.display= "none";

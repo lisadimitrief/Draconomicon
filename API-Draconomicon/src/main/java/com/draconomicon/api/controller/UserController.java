@@ -18,7 +18,6 @@ import com.draconomicon.api.repository.UserRepository;
 import com.draconomicon.api.service.JwtService;
 import com.draconomicon.api.service.UserService;
 
-import jakarta.transaction.Transactional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -33,9 +32,6 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-
 	@GetMapping("/user")
 	public Iterable<User> getUser() { 
 		return userService.getUser();
@@ -57,43 +53,11 @@ public class UserController {
 	}
 	@PatchMapping("/user/{id}")
 	public com.draconomicon.api.model.AuthenticationResponse updateProfil(@PathVariable("id") final Long id, @RequestBody User user) {
-		//profil.setPassword(passwordEncoder.encode(profil.getPassword()));
 		Optional<User> e = userService.getUser(id);
 		if(e.isPresent()) {
 			User currentUser = e.get();
-			
-			String username = user.getUsername();
-			if(username != null) {
-				currentUser.setUsername(username);
-			}
-			String mail = user.getMail();
-			if(mail != null) {
-				currentUser.setMail(mail);;
-			}
-			String password = user.getPassword();
-			if(password != null && !password.isEmpty()) {
-				currentUser.setPassword(passwordEncoder.encode(password));
-			}
-			int age = user.getAge();
-			if(age != 0) {
-				currentUser.setAge(age);
-			}
-			int idGenre = user.getIdGenre();
-			if(age != 0) {
-				currentUser.setIdGenre(idGenre);
-			}
-			int idRole = user.getIdRole();
-			if(idRole != 0) {
-				currentUser.setIdRole(idRole);
-			}
-			String avatar = user.getAvatar();
-			if(avatar != null) {
-				currentUser.setAvatar(avatar);
-			}
-			userService.saveUser(currentUser);
-			
-			User userToken = userRepository.findByUsername(user.getUsername()).orElseThrow();
-			var jwtToken = jwtService.generateToken(userToken);
+			userService.updateUser(currentUser, user);
+			var jwtToken = jwtService.generateToken(currentUser);
 			return AuthenticationResponse.builder()
 					.token(jwtToken)
 					.build();
@@ -101,36 +65,7 @@ public class UserController {
 			return null;
 		}
 	}
-	// @PatchMapping("/user/{id}")
-	// public User patchUser(@PathVariable("id") final Long id, @RequestBody User user){
-	// 	//profil.setPassword(passwordEncoder.encode(profil.getPassword()));		
-	// 	Optional<User> e = userService.getUser(id);
-	// 	if(e.isPresent()) {
-	// 		User currentUser = e.get();
-			
-	// 		String username = user.getUsername();
-	// 		String mail = user.getMail();
-	// 		String password = user.getPassword();
-	// 		int age = user.getAge();
-	// 		int idRole = user.getIdRole();
-	// 		String avatar = user.getAvatar();
-	// 		int idGenre = user.getIdGenre();
-	// 		if(username != null && mail != null && password != null && age != 0 && idRole != 0 && avatar != null) {
-	// 			currentUser.setUsername(username);
-	// 			currentUser.setMail(mail);
-	// 			currentUser.setAvatar(avatar);
-	// 			currentUser.setPassword(password);
-	// 			currentUser.setAge(age);
-	// 			currentUser.setIdGenre(idGenre);
-	// 			userService.saveUser(currentUser);
-	// 		return currentUser;
-	// 		} else {
-	// 			return null;
-	// 		}
-	// 	} else {
-	// 		return null;
-	// 	}
-	// }
+
 	// @Transactional
 	@DeleteMapping("/user/{id}")
 	public void deleteUser(@PathVariable("id") final Long id) {
