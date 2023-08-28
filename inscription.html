@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/icone.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/iconeOnglet.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="index.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -25,27 +25,27 @@
                 
                 <div>
                     <label><span><sup>*</sup></span> Nom d'utilisateur</label>
-                    <input type="text" required name="username" maxlength="20">
+                    <input required type="text"  name="username" minlength="2" maxlength="20">
                 </div>
                 
                 <div>
                     <label>Email</label>
-                    <input type="e-mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="mail" maxlength="30">
+                    <input type="e-mail" id="emailInscription" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="mail" maxlength="30">
                 </div>
                 
                 <div>
                     <label><span><sup>*</sup></span> Mot de passe</label>
-                    <input type="text" required id="premierMDP">
+                    <input required type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="6" id="premierMDP">
                 </div>
 
                 <div>
                     <label><span><sup>*</sup></span> Confirmation mot de passe</label>
-                    <input type="password" required name="password" id="deuxiemeMDP">
+                    <input required type="password" name="password" id="deuxiemeMDP">
                 </div>
 
                 <div>
                     <label><span><sup>*</sup></span> Age</label>
-                    <input type="number" required name="age" min="14" max="90">
+                    <input required type="number" name="age" min="14" max="90">
                 </div>
 
                 <div>
@@ -62,7 +62,7 @@
                     <a href="cgr.html">
                         <label id="CGU"><span><sup>*</sup></span> J'accepte les Conditions Générales d'Utilisation</label>
                     </a>
-                    <input type="checkbox" required name="CGU" class="check">
+                    <input required type="checkbox" name="CGU" class="check">
                 </div>
 
                 <div>

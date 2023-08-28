@@ -7,8 +7,8 @@ if (!(token===null || token===undefined)) {
     formPost.innerHTML =  
     `
         <form onsubmit="postBlog(this);">
-            <input type="text" name="titre" id="titrePost" placeholder="Titre Accrocheur"></br>
-            <input type="text" name="contenu" id="contenuPost" placeholder="Quoi de neuf ?"></br>
+            <input minlength="6" type="text" name="titre" id="titrePost" placeholder="Titre Accrocheur"></br>
+            <input required minlength="6" type="text" name="contenu" id="contenuPost" placeholder="Quoi de neuf ?"></br>
             <!-- <input type="file" name="image" id="imagePost"></br> -->
             <input type="submit" value="Publier" id="publier">
         </form>

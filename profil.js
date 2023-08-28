@@ -62,7 +62,7 @@ function getCurrentUserInfo() {
             <label>Mes Informations</label>
             <div>
                 <label>Pseudo</label>
-                <input type="texte" name="username" maxlength="20" value="${
+                <input type="texte" name="username" minlength="2" maxlength="20" value="${
                     user.username
                 }">
             </div>
@@ -95,14 +95,30 @@ function getCurrentUserInfo() {
                 </select>
             </div>
             <div>
-            <input type="submit" value="Valider">
-            <input type="button" value="Supprimer mon Compte" id="btnSupprime">
+                <input type="submit" value="Valider">
             </div>
         </form>
+        <svg xmlns="http://www.w3.org/2000/svg"><filter id="svgTint"><feColorMatrix type="matrix" values="1 1 1  0 0 0.0392156862745098 0.0392156862745098 0.0392156862745098  0 0 0.0392156862745098 0.0392156862745098 0.0392156862745098  0 0  0 0 0 1 0" /></filter></svg>
+        <a id="btnSupprime"><img src="images/icone.png" alt="tête de dragon gris"/></a>
         `;
+        let btnSupprime = document.getElementById("btnSupprime");
+
+        btnSupprime.addEventListener("mouseout", finHoverBTNSupprime);
+        btnSupprime.addEventListener("mouseover", hoverBTNSupprime);
+        btnSupprime.addEventListener("click", popup);
     }).catch((error) => {
         console.log(error);
     });
+}
+function finHoverBTNSupprime(){
+    document.getElementById("btnSupprime").style.filter= "none";
+}
+function hoverBTNSupprime(){
+    document.getElementById("btnSupprime").style.filter= "brightness(68%) contrast(85%) hue-rotate(360deg) saturate(300%) url(#svgTint)";
+}
+function popup(){
+    document.getElementById("supprimerTout").style.display= "block";
+    console.log("ok");
 }
 function modif(form) {
     const token = window.localStorage.getItem("token");
@@ -220,21 +236,17 @@ function supprimeCompte(formulaire) {
             
                 }).catch((error) => {
                     console.log(error)
-                    alert("Ton pseudo et/ou ton mot de passe est incorrecte.");
+                    alert("Ton pseudo et/ou ton mot de passe est incorrect.");
                 });
             }    
         }
     }
 }
 
-let btnSupprime = document.getElementById("btnSupprime");
+
 let annuleSupprime = document.getElementById("annuleSupprime");
-// console.log(btnSupprime, annuleSupprime);
-// btnSupprime.addEventListener("click", function(){
-//     document.supprimerTout.style.display= "block";
-//     console.log("ok");
-// })
-annuleSupprime.addEventListener("click", function(){
+annuleSupprime.addEventListener("click", poplus);
+function poplus(){
     console.log("ok");
-    document.supprimerTout.style.display= "none";
-})
+    document.getElementById("supprimerTout").style.display= "none";
+};

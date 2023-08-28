@@ -452,6 +452,7 @@ a:visited
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 3em;
 }
 #imagesProfil ~ form label
 {
@@ -485,11 +486,11 @@ option
     width: 15em;
 }
 
-#btnSupprime
+#btnSupprime img
 {
-    margin-top: 0.5em;
+    width: 6em;
 }
-#btnSupprime:hover, #valideSupprime:hover
+#valideSupprime:hover
 {
     background: rgb(255,0,0);
     background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
@@ -593,6 +594,12 @@ option
 {
     font-family: 'Sancreek', cursive;
     color: #ffffffab;
+}
+
+input:invalid
+{
+    border: red 4px solid;
+    background-color: #ff0015b2;
 }
 #articles
 {
