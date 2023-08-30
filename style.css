@@ -1,0 +1,1011 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&family=Sancreek&display=swap');
+@font-face {
+   font-family: "HouseOfTheDragon";
+   src: url("polices/HouseOfTheDragon.otf");
+}
+/* 
+    probable titres: 'New Rocker', cursive;
+    textes: 'Sancreek', cursive;
+    titre: 'HouseOfTheDragon';
+*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Sancreek', cursive;
+    min-height: 100vh;
+    background: url("images/test.jpeg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+input
+{
+    font-family: 'Sancreek', cursive;
+}
+a
+{
+    text-decoration : none;
+}
+span
+{
+    color: red;
+}
+/* PC "Standard" */
+/* header */
+#burger,#imgInscrV, ul
+{
+    display: none;
+}
+#head, #foot, #headP
+{
+    background: url("images/headFoot.jpeg");
+    width: 100%;
+    height: 8.5em;
+    font-family: 'HouseOfTheDragon';
+}
+#titre
+{
+    display: flex;
+    justify-content: center;
+}
+
+#draconomicon
+{
+    width: auto;
+    height: 6em;
+
+}
+nav
+{
+    display: flex;
+    justify-content: space-around;
+}
+a
+{
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav a img
+{
+    width: 7em;
+    height: 4em;
+    position: absolute;
+    z-index: 2;
+}
+.longP
+{
+    width: 10em;
+}
+a p
+{
+    position: absolute;
+    z-index: 3;
+    font-size: 1.5em;
+    font-weight: 400;
+
+}
+
+.ongletFocus
+{
+    z-index: 1;
+    margin-top: 5em;
+    visibility: hidden;
+}
+
+/* footer */
+/* Il y en a aussi en haut avec le head */
+
+footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer h3
+{
+    color: black;
+    text-shadow: 1px 1px 0 #E02232;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+#secInscr ~ #foot
+{
+    position: absolute;
+    bottom: 0;
+}
+/* container */
+#container, #imgInscrV
+{
+    display: none;
+}
+/* Connexion/Inscription */
+section
+{
+    width: 100%;
+    height: 100%;
+}
+#secInscr
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#secInscr label:not(#CGU)
+{
+    font-size: 1.5em;
+}
+#secInscr input:not(.check)
+{
+    width: 20em;
+}
+#inscription select
+{
+    width: 20em;
+    margin: auto;
+}
+#deco
+{
+    position: absolute;
+    top: 3.5em;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    z-index: 1;
+}
+#decoG, #decoD
+{
+    width: 20em;
+    height: auto;
+}
+#decoD
+{
+    transform: rotateY(3.142rad);
+}
+#imgInscr
+{
+    z-index: 2;
+    width: 80em;
+    height: 38em;
+    margin-bottom: 8em;
+    /* height: 50em; */
+}
+.formTitre
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    margin-bottom: 10em;
+    /* width: 50em; */
+}
+#inscription
+{
+    display: grid;
+    flex-wrap: wrap;
+    width: 50em;
+}
+.titre
+{
+    font-family: "HouseOfTheDragon";
+    font-weight: 400;
+    margin-top: 1em;
+    font-size: 4em;
+}
+form div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+}
+#inscription div:nth-child(1)
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+#inscription div:nth-child(2)
+{
+    grid-column: 2;
+    grid-row: 1;
+}
+#inscription div:nth-child(3)
+{
+    grid-column: 1;
+    grid-row: 2;
+}
+#inscription div:nth-child(4)
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+#inscription div:nth-child(5)
+{
+    grid-column: 1;
+    grid-row: 3;
+}
+#inscription div:nth-child(6)
+{
+    grid-column: 2;
+    grid-row: 3;
+}
+#inscription div:nth-child(7)
+{
+    grid-column: 1;
+    grid-row: 4;
+}
+.invisible
+{
+    visibility: hidden;
+}
+.ligne
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.ligne .lisible, .ligne .lisible ~ a
+{
+    margin-top: -2em;
+    margin-bottom: 2em;
+    text-shadow: rgb(255, 94, 0) 0 0 0.4em ;
+}
+#CGU
+{
+    font-size: 1em;
+    margin-right: 1em;
+    text-shadow: rgb(255, 94, 0) 0 0 0.4em ;
+}
+.lisible
+{
+    margin-right: 5.5em;
+}
+#ligneCo
+{
+    justify-content: center;
+    align-items: flex-end;
+}
+.ligne a
+{
+    margin-left: 5px;
+}
+#secInscr input[type=submit]
+{
+    background-color: rgba(67, 224, 104, 0.7);
+    box-shadow: inset black 0 0 20px;
+    border: none;
+    color: white;
+    font-family: "Sancreek";
+}
+
+/* Interaction */
+a:hover p, a:hover label
+{
+    color: red;
+}
+a:hover .ongletFocus, #focus
+{
+    visibility: visible;
+}
+a:visited
+{
+    color: black;
+    text-decoration: none;
+}
+#secInscr input[type=submit]:hover
+{
+    background: rgba(67, 224, 104, 1);
+    width: 21em;
+}
+#secInscr input[type=submit]:active
+{
+    color: green;
+    box-shadow: inset green 0 0 12px 3px;
+}
+/* Profil */
+#secProfil
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#fondProfil
+{
+    position: absolute;
+    top: 7.5em;
+    z-index: 0;
+    width: 70em;
+    height: 43em;
+}
+#secProfil h1, #secBlog h1
+{
+    display: none;
+}
+#boiteProfil
+{
+    z-index: 1;
+    display: flex;
+    width: 45em;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3em;
+}
+#imagesProfil
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#headProfil
+{
+    z-index: 2;
+    display: flex;
+    width: 20em;
+    padding-bottom: 1em;
+    border-bottom: black 1px solid;
+    align-items: center;
+}
+#headProfil img
+{
+    width: 7em;
+    height: 7em;
+}
+#headProfil h3
+{
+    margin-left: 1em;
+    font-size: 1.5em;
+}
+#choixAvatar
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 30em;
+    margin-top: 1em;
+}
+.hexagone {
+    position: relative;
+    width: 6em;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-filter : drop-shadow(5px 5px 5px rgba(0,0,0,0.6));
+    filter : drop-shadow(5px 5px 5px rgba(0,0,0,0.6));
+  }
+  .hexagone:after {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    content: "";
+    display: block;
+    margin-top: 28.86751%;
+    padding-bottom: 86.602%;
+  }
+  .hexagone .hexagonemain{
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 115.47005%;
+    overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    z-index: 1;
+  }
+  .hexagone .hexagonemainbefore{
+    content: "";
+    display: block;
+    position: absolute;
+    visibility: visible;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #2f00ff;
+    -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  }
+  .hexagone .hexagonecontent{
+    overflow-y: auto;
+    width: 100%;
+    display: block;
+    position: absolute;
+    visibility: visible;
+    bottom: 25%;
+    top: 25%;
+    left: 0;
+    z-index: 3;
+  }
+  .hexagone img{
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-transform: rotate3d(0,0,0,0deg);
+    -ms-transform: rotate3d(0,0,0,0deg);
+    transform: rotate3d(0,0,0,0deg);
+    cursor: pointer;
+  }
+
+#imagesProfil ~ form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3em;
+}
+#imagesProfil ~ form label
+{
+    font-size: 1.3em;
+}
+#imagesProfil ~ form input, #imagesProfil ~ form select, #rechercheBlog input, #inscription select, #secInscr input:not(.check), #supprimerTout form input
+{
+    text-align: center;
+    height: 2.5em;
+    border-radius: 0.8em;
+    padding: 0.15em;
+    background: #000000b2;
+    border: 1px solid #000;
+    color: #FFFF;
+}
+#imagesProfil ~ form input, #imagesProfil ~ form select
+{
+    width: 15em;
+}
+
+option
+{
+    border: none;
+    padding: 0.2em;
+    text-align: center;
+    background: #000;
+    color: #FFFF;
+}
+#imagesProfil ~ form input[type=submit]
+{
+    width: 15em;
+}
+
+#btnSupprime img
+{
+    width: 6em;
+}
+#valideSupprime:hover
+{
+    background: rgb(255,0,0);
+    background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(144,0,0,1) 100%);
+    border: none;
+}
+#supprimerTout
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #00000073;
+    z-index: 5;
+    display: none;
+}
+#parcheminSupprime
+{
+    width: 50em;
+    height: 40em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+#supprimerTout form input
+{
+    width: 20em;
+}
+#formSupprimer
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 6;
+}
+#formSupprimer label
+{
+    font-size: 1.3em;
+}
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+#imagesProfil ~ form input[type=submit]:hover, #secInscr input[type=submit]:hover, #rechercheBlog input:not(input[type=search]):hover, #formPost input:not(input[type=text]):hover, #annuleSupprime:hover
+{
+    background: rgb(11,65,0);
+    background: linear-gradient(180deg, rgba(11,65,0,1) 0%, rgba(43,255,0,1) 100%);
+    border: none;
+}
+/* Blog */
+#secBlog
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#rechercheBlog input:not(input[type=submit])
+{
+    border-radius: 0.8em 0 0 0.8em;
+    margin-top: 2em;
+    width: 25em;
+}
+#rechercheBlog input:not(input[type=search])
+{
+    border-radius: 0 0.8em 0.8em 0;
+    margin-left: -0.4em;
+}
+
+#formPost
+{
+    margin-top: 1em;
+    border: #000000 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.7em;
+}
+#formPost input:first-child
+{
+    border-radius: 0.7em 0.7em 0 0;
+    border-bottom: 1px solid #000;
+}
+#formPost input:last-child
+{
+    border-radius: 0 0 0.7em 0.7em;
+    border-top: 1px solid #000;
+}
+#formPost input, #inscription input, #inscription input[value=""]
+{
+    color: #FFFF;
+    text-align: center;
+    height: 2.5em;
+    padding: 0.15em;
+    background: #000000b2;
+    color: #FFFF;
+    border: none;
+    width: 30em;
+}
+#inscription input[type=checkbox]
+{
+    width: 2em;
+}
+#formPost input::placeholder, #inscription input::placeholder
+{
+    font-family: 'Sancreek', cursive;
+    color: #ffffffab;
+}
+
+input:invalid
+{
+    border: red 4px solid;
+    background-color: #ff0015b2;
+}
+#articles
+{
+    margin-top: 1em;
+}
+#post
+{
+    width: 45em;
+    margin-bottom: 3em;
+    padding: 2em;
+    background: url("images/post.jpeg");
+    background-size: cover;
+    box-shadow: #000 0 0 0.8em 0.3em;
+}
+#entetePost
+{
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+}
+#entetePost h3, #contenuPost h3
+{
+    margin: 0.5em 0.5em;
+    text-align: center;
+}
+.hexagoneB {
+    position: relative;
+    width: 3em;
+    visibility: hidden;
+    overflow: hidden;
+    -webkit-filter : drop-shadow(5px 5px 5px rgba(0,0,0,0.6));
+    filter : drop-shadow(5px 5px 5px rgba(0,0,0,0.6));
+  }
+  .hexagoneB:after {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    content: "";
+    display: block;
+    margin-top: 28.86751%;
+    padding-bottom: 86.602%;
+  }
+  .hexagoneB .hexagoneBmain{
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 115.47005%;
+    overflow: hidden;
+    visibility: hidden;
+    -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
+    z-index: 1;
+  }
+  .hexagoneB .hexagoneBmainbefore{
+    content: "";
+    display: block;
+    position: absolute;
+    visibility: visible;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #2f00ff;
+    -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+    transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
+  }
+  .hexagoneB .hexagonecontent{
+    overflow-y: auto;
+    width: 100%;
+    display: block;
+    position: absolute;
+    visibility: visible;
+    bottom: 25%;
+    top: 25%;
+    left: 0;
+    z-index: 3;
+  }
+  .hexagoneB img{
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-transform: rotate3d(0,0,0,0deg);
+    -ms-transform: rotate3d(0,0,0,0deg);
+    transform: rotate3d(0,0,0,0deg);
+    cursor: pointer;
+  }
+hr
+{
+    width: 25em;
+    border: none;
+    border-top: 1px solid #000000;
+    margin: auto;
+
+}
+#formBlog
+{
+    position: absolute;
+    top: 8em;
+    width: 40em;
+    height: 20em;
+}
+
+/* CGU */
+#CGU
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#CGU p
+{
+    width: 110em;
+}
+/* //////////////////// */
+#secIndex
+{
+    display: flex;
+    flex-direction: column;
+}
+#imageFond, #imageFond2
+{
+    z-index: 0;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+    top: 25%;
+}
+#imageFond2
+{
+    right: 1px;
+    transform: rotateY(180deg);
+}
+#presentation
+{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+#presentationText
+{
+    display: flex;
+}
+.paragrapheIndex
+{
+    margin: 2em;
+}
+#presentationText p
+{
+    text-indent: 2em;
+    width: 40em;
+}
+#screenshot
+{
+    margin: auto;
+    z-index: 2;
+}
+#presentationFonctionnalite
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: -19em;
+    z-index: 3;
+}
+#presentationFonctionnalite img
+{
+    width: 30em;
+    height: 30em;
+}
+.textPub
+{
+    position: absolute;
+    top: 48.5em;
+    margin-left: 5em;
+    color: #000;
+    text-align: center;
+}
+.textPub h2
+{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.textPub p
+{
+    width: 20em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 430px){
+    /* container */
+    #container
+    {
+        display: block;
+    }
+    #burger
+    {
+        display: flex;
+        margin: auto;
+        z-index: 6;
+        transition: 0.5s;
+        position: absolute;
+        top: 0;
+        bottom: none;
+        /* justify-content: center; */
+    }
+    .active
+    {
+        top: none;
+        bottom: -30em;
+        position: fixed;
+    }
+    #burger img
+    {
+        width: 15em;
+        height: auto;
+    }
+    nav a input, #titre, #imgInscr, nav a:not(#burger) img, nav a p, #deco, #imgInscr
+    {
+        display: none;
+    }
+    #head, #headP
+    {
+        background: none;
+    }
+    #secInscr
+    {
+        margin-top: -10em;
+        /* margin-bottom: 50em; */
+    }
+    #imgInscrV
+    {
+        display: block;
+        width: 26em;
+        height: 70em;
+        margin: auto;
+    }
+
+    #inscription, #inscription div
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #inscription div:nth-child(1)
+    {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    #inscription div:nth-child(2)
+    {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #inscription div:nth-child(3)
+    {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    #inscription div:nth-child(4)
+    {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    #inscription div:nth-child(5)
+    {
+        grid-column: 1;
+        grid-row: 5;
+    }
+    #inscription div:nth-child(6)
+    {
+        grid-column: 1;
+        grid-row: 6;
+    }
+    #secInscr input[type=checkbox]
+    {
+        width: 2em;
+        height: 2em;
+    }
+    .ligne
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .lisible
+    {
+        font-size: 1.5em;
+        margin-bottom: 2em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #foot
+    {
+        /* bottom: -28em; */
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    
+    #container
+    {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 90%;  
+    }
+    .menuBruger
+    {
+        display: block;
+    }
+    #modal
+    {
+        width: 100%;
+        height: 100%;
+    }
+    #modal ul
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    #modal ul li
+    {
+        color: white;
+        font-size: 2em;
+        margin: 0.85em;
+        z-index: 5;
+        list-style-type: none;
+    }
+}
