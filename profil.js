@@ -78,7 +78,7 @@ function getCurrentUserInfo() {
             </div>
             <div>
                 <label>Mot de Passe</label>
-                <input type="password" name="password">
+                <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" name="password">
             </div>
             <div>
                 <label for="genre-selection">Genre :</label>
