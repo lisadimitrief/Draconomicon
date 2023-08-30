@@ -59,7 +59,7 @@ function getCurrentUserInfo() {
             
         </div>
         <form onsubmit="modif(this); return false">
-            <label>Mes Informations</label>
+            <label>Mes informations</label>
             <div>
                 <label>Pseudo</label>
                 <input type="texte" name="username" minlength="2" maxlength="20" value="${
@@ -118,7 +118,6 @@ function hoverBTNSupprime(){
 }
 function popup(){
     document.getElementById("supprimerTout").style.display= "block";
-    console.log("ok");
 }
 function modif(form) {
     const token = window.localStorage.getItem("token");
@@ -167,7 +166,6 @@ function modifAvatar(avatar) {
         }
     })
     .then((res) => {
-      console.log("ok");
         window.location.reload();
     })
     .catch((error) => {
@@ -247,6 +245,5 @@ function supprimeCompte(formulaire) {
 let annuleSupprime = document.getElementById("annuleSupprime");
 annuleSupprime.addEventListener("click", poplus);
 function poplus(){
-    console.log("ok");
     document.getElementById("supprimerTout").style.display= "none";
 };

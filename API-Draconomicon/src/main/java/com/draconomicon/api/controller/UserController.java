@@ -3,7 +3,6 @@ package com.draconomicon.api.controller;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.draconomicon.api.model.AuthenticationResponse;
 import com.draconomicon.api.model.User;
-import com.draconomicon.api.repository.UserRepository;
 import com.draconomicon.api.service.JwtService;
 import com.draconomicon.api.service.UserService;
 
@@ -29,9 +27,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@Autowired
-	private UserRepository userRepository;
-	
 	@GetMapping("/user")
 	public Iterable<User> getUser() { 
 		return userService.getUser();
