@@ -125,7 +125,7 @@ function modif(form) {
     const headers = { Authorization: `Bearer ${token}` };
     const url = `http://localhost:8080/user/${userId}`;
     if (window.confirm("es-tu sûr ?")) {
-
+    
         axios({
             headers,
             url,
@@ -143,12 +143,9 @@ function modif(form) {
             window.localStorage.removeItem("pseudo");
             window.localStorage.removeItem("userId");
             window.localStorage.setItem("token", res.data.token);
-            window.localStorage.setItem("pseudo", res.data.username);
+            window.localStorage.setItem("pseudo", form.elements["username"].value);
             window.location.reload();
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+        }).catch((errorModif) => {console.log(errorModif);});
     }
 }
 
