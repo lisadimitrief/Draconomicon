@@ -36,7 +36,6 @@ public class SecurityConfig {
                         .requestMatchers("/blog/viewall").permitAll()
                         .requestMatchers("/blog/search/{username}").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/encyclopedie").permitAll()
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest()
