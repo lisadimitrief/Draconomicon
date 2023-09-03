@@ -2,7 +2,7 @@
   "name": "serveur_front_draconomicon",
   "version": "1.0.0",
   "description": "Server front pour l'application Draconomicon",
-  "main": "public/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
