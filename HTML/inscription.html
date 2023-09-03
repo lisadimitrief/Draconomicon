@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="FR-fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/iconeOnglet.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="index.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="inscription.js"></script>
+    <title>Draconomicon - Inscription</title>
+    <meta name="description" content="Voici la page inscription du projet Draconomicon">
+    <!-- PWA --> 
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/iconeOnglet.png">
+    <meta name="apple-mobile-web-app-status-bar" content="white">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="white">
+    <script defer src="../app.js"></script>
+</head>
+<body>
+    <header id="head">
+        <!-- header généré par l'index.js -->
+    </header>
+    <section id="secInscr">
+        <img src="images/parchemin.png" alt="" id="imgInscr">
+        <img src="images/parcheminV.png" alt="" id="imgInscrV">
+        <div class="formTitre">
+            <h1 class="titre">Inscription</h1>
+            <form onsubmit="inscription(this); return false" id="inscription">
+                
+                <div>
+                    <label><span><sup>*</sup></span> Nom d'utilisateur</label>
+                    <input required type="text"  name="username" minlength="2" maxlength="20">
+                </div>
+                
+                <div>
+                    <label>Email</label>
+                    <input type="e-mail" id="emailInscription" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" name="mail" maxlength="30">
+                </div>
+                
+                <div>
+                    <label><span><sup>*</sup></span> Mot de passe</label>
+                    <input required type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="6" id="premierMDP">
+                </div>
+
+                <div>
+                    <label><span><sup>*</sup></span> Confirmation mot de passe</label>
+                    <input required type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" name="password" id="deuxiemeMDP">
+                </div>
+
+                <div>
+                    <label><span><sup>*</sup></span> Age</label>
+                    <input required type="number" name="age" min="14" max="90">
+                </div>
+
+                <div>
+                    <label for="genre-selection"><span><sup>*</sup></span> Genre :</label>
+                    <select required name="genre" id="genre-selection">
+                        <option value="">...</option>
+                        <option value="1">Femme</option>
+                        <option value="2">Homme</option>
+                        <option value="3">Autre</option>
+                    </select>
+                </div>
+
+                <div class="ligne">
+                    <a href="/cgu">
+                        <label id="CGU"><span><sup>*</sup></span> J'accepte les Conditions Générales d'Utilisation</label>
+                    </a>
+                    <input required type="checkbox" name="CGU" class="check">
+                </div>
+
+                <div>
+                    <label class="invisible">invisible</label>
+                    <input type="submit" id="valideInsc" value="Envoyer">
+                </div>
+
+                <div class="ligne">
+                    <p class="lisible">Déjà inscrit ?</p>
+                    <a href="/connexion">
+                        <p>Connectez-vous</p>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div id="deco">
+            <img src="images\deco.png" alt="dragon décoratif vers la gauche" id="decoG">
+            <img src="images\deco.png" alt="dragon décoratif vers la droite" id="decoD">
+        </div>    
+    </section>
+ 
+    <footer id="foot">
+        <!-- footer généré par l'index.js -->
+    </footer>
+</body>
+</html>
