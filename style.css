@@ -70,6 +70,7 @@ nav
 }
 a
 {
+    color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -510,8 +511,9 @@ option
     width: 50em;
     height: 40em;
     position: absolute;
-    top: 7.5em;
-    right: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 5;
 }
 #supprimerTout form input
@@ -520,8 +522,10 @@ option
 }
 #formSupprimer
 {
-    top: 17em;
-    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
     z-index: 6;
 }
 #formSupprimer label
@@ -708,15 +712,15 @@ hr
     height: 20em;
 }
 
-/* CGR */
-#CGR
+/* CGU */
+#CGU
 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
-#CGR p
+#CGU p
 {
     width: 110em;
 }
