@@ -16,7 +16,7 @@ function connexion(formulaire){
     
     window.localStorage.setItem("token", res.data.token);
     window.localStorage.setItem("pseudo", username);
-    window.location.pathname = "/profil.html"
+    window.location.pathname = "/profil"
     
     }).catch((error) => {
     console.log(error)

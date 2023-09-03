@@ -6,64 +6,62 @@ if(token===null){
     header.innerHTML= 
         `
             <div id="titre">
-                <a href="index.html" id="lienAcceuil">
+                <a href="/home" id="lienAcceuil">
                     <img src="images/draconomicon.png" id="draconomicon">
                 </a>
             </div>
             <nav>
-                <a href="inscription.html">
+                <a href="/inscription">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Inscription' ? 'id="focus"' : ''}>
                     <p>Inscription</p>
                 </a>
-                <a href="connexion.html">
+                <a href="/connexion">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Connexion' ? 'id="focus"' : ''}>
                     <p>Connexion</p>
                 </a>
-                <a href="enyclopedie.html">
+                <a href="/encyclopedie">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Encyclopédie' ? 'id="focus"' : ''}>
                     <p>Encyclopédie</p>
                 </a>
                 
-                <a href="blog.html">
+                <a href="/blog">
                     <img src="images/onglet.png" alt="parchemin déchiré">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Blog' ? 'id="focus"' : ''}>
                     <p>Blog</p>
                 </a>
-                <a id="burger"><img src="images/icone.png"></a>
             </nav>        
         `;
 }else{
     header.innerHTML=
         `
             <div id="titre">
-            <a href="index.html" id="lienAcceuil">
-                <img src="images/draconomicon.png" id="draconomicon">
-            </a>
+                <a href="/home" id="lienAcceuil">
+                    <img src="images/draconomicon.png" id="draconomicon">
+                </a>
             </div>
             <nav>
-                <a href="profil.html">
+                <a href="/profil">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Profil' ? 'id="focus"' : ''}>
                     <p>Profil</p>
                 </a>
-                <a href="index.html" id="deconnexion">
+                <a href="/home" id="deconnexion">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <p>Déconnexion</p>
                 </a>
-                <a href="enyclopedie.html">
+                <a href="/encyclopedie">
                     <img src="images/onglet.png" alt="parchemin déchiré" class="longP">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Encyclopédie' ? 'id="focus"' : ''}>
                     <p>Encyclopédie</p>
                 </a>
-                <a href="blog.html">
+                <a href="/blog">
                     <img src="images/onglet.png" alt="parchemin déchiré">
                     <img src="images/ongletFocus.svg" alt="rectangle rouge" class="ongletFocus" ${activePage[0].outerText=='Blog' ? 'id="focus"' : ''}>
                     <p>Blog</p>
                 </a>
-                <a id="burger"><img src="images/icone.png"></a>
             </nav>
         `;
     let deconnexion = document.getElementById("deconnexion");
@@ -71,7 +69,7 @@ if(token===null){
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("pseudo");
         window.localStorage.removeItem("userId");
-        window.location.pathname = "/index.html"
+        window.location.pathname = "/index"
     })
 }
 
@@ -86,30 +84,33 @@ footer.innerHTML =
 
 ///////BURGER///////////////////////////////////////////////////////////////
 
-const boutonD = document.getElementById("burger");
+const btnBurger = document.getElementById("burger");
+// const boutonD = document.getElementById("burger");
 
-let container = document.createElement("div");
-let modal = document.createElement("div");
+// let container = document.createElement("div");
+// let modal = document.createElement("div");
 
-document.body.append(container);
-container.append(modal);
-container.setAttribute("id","container");
-modal.setAttribute("id","modal");
+// document.body.append(container);
+// container.append(modal);
+// container.setAttribute("id","container");
+// modal.setAttribute("id","modal");
 
 
-modal.innerHTML=
-                `
-                    <ul>
-                        <a href="index.html"><li>Acceuil</li></a>
-                        <a href="inscription.html"><li>Inscription</li></a>
-                        <a href="connexion.html"><li>Connection</li></a>
-                        <a href="encyclopdie.html"><li>Encylopédie</li></a>
-                        <a href="blog.html"><li>Blog</li></a>
-                    </ul>
-                `
+// modal.innerHTML=
+//                 `
+//                     <ul>
+//                         <a href="index.html"><li>Acceuil</li></a>
+//                         <a href="inscription.html"><li>Inscription</li></a>
+//                         <a href="connexion.html"><li>Connection</li></a>
+//                         <a href="encyclopdie.html"><li>Encylopédie</li></a>
+//                         <a href="blog.html"><li>Blog</li></a>
+//                     </ul>
+//                 `
 
                 
                 
 boutonD.onclick = ()=>boutonD.classList.toggle("active");
 boutonD.onclick = ()=>container.classList.toggle("menuBurger");
+
+
 

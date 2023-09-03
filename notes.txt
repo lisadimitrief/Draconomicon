@@ -1,3 +1,7 @@
+⚠️Entrez dans le terminal ceci : npm i express, npm i nodemon, npm i morgan, npm i browser-env⚠️
+
+
+
 1 - manifest.json
     standalone == fait disparaitre l'url
 

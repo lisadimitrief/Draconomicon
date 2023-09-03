@@ -62,7 +62,7 @@ function getCurrentUserInfo() {
             <label>Mes informations</label>
             <div>
                 <label>Pseudo</label>
-                <input type="texte" name="username" minlength="2" maxlength="20" value="${
+                <input required type="texte" name="username" minlength="2" maxlength="20" value="${
                     user.username
                 }">
             </div>
@@ -74,7 +74,7 @@ function getCurrentUserInfo() {
             </div>
             <div>
                 <label>Age</label>
-                <input type="number" name="age" value="${user.age}" min="14" max="90">
+                <input required type="number" name="age" value="${user.age}" min="14" max="90">
             </div>
             <div>
                 <label>Mot de Passe</label>
@@ -226,7 +226,7 @@ function supprimeCompte(formulaire) {
                         window.localStorage.removeItem("token");
                         window.localStorage.removeItem("pseudo");
                         window.localStorage.removeItem("userId");
-                        window.location.pathname = "/index.html"
+                        window.location.pathname = "/index"
                     })
                     .catch((error) => {
                         console.log(error);

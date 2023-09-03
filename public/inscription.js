@@ -16,7 +16,7 @@ function inscription(formulaire) {
       },
     })
       .then((res) => {
-        window.location.pathname = "/connexion.html";
+        window.location.pathname = "/connexion";
         console.log(res);
       })
       .catch((error) => {
