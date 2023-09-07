@@ -67,19 +67,6 @@ public class BlogServiceImpl implements BlogService{
 		}
 		
 	}
-	// @Override
-	// public String supprimerTout(Long id_user) {
-	// 	Blog blog = blogRepository.findAllByIdUser(id_user).orElseThrow(() -> new RuntimeException("Blog not found"));
-	// 	User userCo = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	// 	if (blog.getIdUser()==userCo.getIdUser()) {
-	// 		blogRepository.deleteAllById(id_user);
-	// 		return "Blog deleted";
-	// 	} else {
-	// 		return "Ce n'est pas TON POST";
-	// 	}
-		
-	// }
-
 
 	@Override
 	public BlogResponse response(Blog b){

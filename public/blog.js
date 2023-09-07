@@ -90,7 +90,7 @@ function afficheBlog(fil) {
 function deletePost(post) {
     let postId = post.parentElement.parentElement.id;
     const token = window.localStorage.getItem("token");
-
+    if (window.confirm("es-tu sûr ? Ceci est définitif")) {
     axios({
         method: "delete",
         url: `http://localhost:8080/blog/${postId}`,
@@ -98,4 +98,5 @@ function deletePost(post) {
     }).then((res)=>{
         window.location.reload();
     });
+    };
 }
