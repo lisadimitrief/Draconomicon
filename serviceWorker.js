@@ -1,5 +1,5 @@
 const staticCacheName = "cache-v1";
-const assets = ["/","/home"];
+const assets = ["http://localhost:5500/"];
 
 
 self.addEventListener("install", (e) => {

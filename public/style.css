@@ -33,7 +33,7 @@ span
 }
 /* PC "Standard" */
 /* header */
-#burger,#imgInscrV, ul
+#burger,#imgInscrV, ul, #navBurger
 {
     display: none;
 }
@@ -767,11 +767,11 @@ hr
 {
     display: flex;
     justify-content: space-around;
-    margin-top: -19em;
     z-index: 3;
 }
 #presentationFonctionnalite img
 {
+    margin-top: -19em;
     width: 30em;
     height: 30em;
 }
@@ -859,22 +859,94 @@ hr
     body
     {
         width: 100%;
+        height: auto;
     }
-    #foot, #head, li:not(:last-child)
+    #foot, #head, #imagesFond
     {
         display: none;
     }
+    section
+    {
+        margin-top: 10em;
+    }
     #burger
     {
+        z-index: 5;
+        width: auto;
+        height: auto;
+        display: block;
         position: absolute;
-        transform: translate(-50%, -50%);
-        top: 0px;
-        left: 50%;
-        z-index: 10;
+        top: -5em;
     }
-    #burger img{
+    #burger img
+    {
         width: 10em;
         height: auto;
     }
-    
+    #navBurger
+    {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+    #navBurger a
+    {
+        width: 100%;
+        height: 5em;
+        background-color: rgba(0,0,0,0.6);
+        color: #FFF;
+    }
+    /* index **************************************************** */
+    #presentation h1
+    {
+        font-size: 1.2rem;
+    }
+    #presentationText, #presentationFonctionnalite
+    {
+        flex-direction: column;
+    }
+    #presentationText p
+    {
+        width: 20rem;
+    }
+    #screenshot
+    {
+        width: 393px;
+        margin: auto;
+    }
+    #presentationFonctionnalite img
+    {
+        margin-top: 0.5em;
+        position: static;
+        width: 400px;
+        /* z-index: 1; */
+    }
+    .textPub 
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        width: 17em;
+        transform: translate(-50%, -50%);
+        top: 205%;
+        left: 50%;
+    }
+    .pub ~ .pub .textPub
+    {
+        margin-top: 30em;
+    }
+    .textPub h2
+    {
+        margin-bottom: 0.1em;
+    }
+    .textPub p
+    {
+        width: 17em;
+    }
 }

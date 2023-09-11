@@ -1,7 +1,11 @@
 function inscription(formulaire) {
   const premierMDP = document.getElementById("premierMDP").value;
   const deuxiemeMDP = document.getElementById("deuxiemeMDP").value;
-  if (premierMDP !== deuxiemeMDP) {
+  const CGU = document.getElementById("cocher");
+  if (CGU.checked!=true) {
+    alert('La case "J\'accepte les conditions d\'utilisations" n\'est pas coché');
+  }
+  else if (premierMDP !== deuxiemeMDP) {
     alert("Tes saisies de mot de passe ne sont pas identique");
   } else {
     axios({

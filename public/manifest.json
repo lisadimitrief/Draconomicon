@@ -1,7 +1,7 @@
 {
     "name": "Draconomicon",
     "short_name": "Draco",
-    "start_url": "index.html",
+    "start_url": "http://localhost:5500/",
     "display": "standalone",
     "background_color": "white",
     "theme_color": "white",
