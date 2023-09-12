@@ -64,13 +64,6 @@ if(token===null){
                 </a>
             </nav>
         `;
-    let deconnexion = document.getElementById("deconnexion");
-    deconnexion.addEventListener("click",()=>{
-        window.localStorage.removeItem("token");
-        window.localStorage.removeItem("pseudo");
-        window.localStorage.removeItem("userId");
-        window.location.pathname = "/index"
-    })
 }
 
 //////FOOTER/////////////////////////////////////////////////////////////////////////////
@@ -104,7 +97,7 @@ if(token===null){
                 <p>Blog</p>
             </a>
             <a disable>
-            <p class="invisible">Blog</p>
+                <p class="invisible">Blog</p>
             </a>
             <a disable>
                 <p class="invisible">Blog</p>
@@ -136,30 +129,7 @@ if(token===null){
             </a>
         `;
 }
-// const boutonD = document.getElementById("burger");
 
-// let container = document.createElement("div");
-// let modal = document.createElement("div");
-
-// document.body.append(container);
-// container.append(modal);
-// container.setAttribute("id","container");
-// modal.setAttribute("id","modal");
-
-
-// modal.innerHTML=
-//                 `
-//                     <ul>
-//                         <a href="index.html"><li>Accueil</li></a>
-//                         <a href="inscription.html"><li>Inscription</li></a>
-//                         <a href="connexion.html"><li>Connection</li></a>
-//                         <a href="encyclopdie.html"><li>Encylopédie</li></a>
-//                         <a href="blog.html"><li>Blog</li></a>
-//                     </ul>
-//                 `
-
-// boutonD.onclick = ()=>boutonD.classList.toggle("active");
-// boutonD.onclick = ()=>container.classList.toggle("menuBurger");
 
 const btnBurger = document.getElementById("burger");
 let styleNavBurger = document.getElementById("navBurger");
@@ -174,6 +144,12 @@ btnBurger.addEventListener("click", ()=>{
     }
 });
 
-
+let deconnexion = document.getElementById("deconnexion");
+    deconnexion.addEventListener("click",()=>{
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("pseudo");
+        window.localStorage.removeItem("userId");
+        window.location.pathname = "/index"
+    })
 
 

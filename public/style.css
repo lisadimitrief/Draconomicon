@@ -106,12 +106,11 @@ footer
 }
 footer h3
 {
-    color: black;
-    text-shadow: 1px 1px 0 #E02232;
+    color: #E02232;
+    text-shadow: 1px 1px 10px black,1px 1px 10px black,1px 1px 10px black, 1px 1px 0 black;
     font-size: 2em;
     font-weight: 400;
 }
-
 #secInscr ~ #foot
 {
     position: absolute;
