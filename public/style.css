@@ -30,6 +30,8 @@ a
 span
 {
     color: red;
+    text-shadow: #FFF 1px 1px 0;
+    /* font-size: 3em; */
 }
 /* PC "Standard" */
 /* header */

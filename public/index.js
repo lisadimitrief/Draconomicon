@@ -71,7 +71,7 @@ if(token===null){
 let footer = document.getElementById("foot");
 footer.innerHTML = 
     `
-        <h3>Crée par Lisa Dimitrief-Dontcheff</h3>
+        <h3>Créé par Lisa Dimitrief-Dontcheff</h3>
     `
     
     
@@ -149,7 +149,7 @@ let deconnexion = document.getElementById("deconnexion");
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("pseudo");
         window.localStorage.removeItem("userId");
-        window.location.pathname = "/index"
+        window.location.pathname = "/home"
     })
 
 

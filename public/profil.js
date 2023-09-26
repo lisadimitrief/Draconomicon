@@ -223,7 +223,7 @@ function supprimeCompte(formulaire) {
                         window.localStorage.removeItem("token");
                         window.localStorage.removeItem("pseudo");
                         window.localStorage.removeItem("userId");
-                        window.location.pathname = "/index"
+                        window.location.pathname = "/home"
                     })
                     .catch((error) => {
                         console.log(error);

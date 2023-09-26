@@ -1,1 +1,0 @@
-select role, username, mail, password, age, genre, avatar from user inner join genre on user.id_genre = genre.id_genre inner join role using(id_role) order by id_user
